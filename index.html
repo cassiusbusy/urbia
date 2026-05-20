@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>URBI.A. — IPPUC · Plano Diretor de Curitiba</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── INDEX-SPECIFIC ── */
+.hero-stats {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.hs { flex: 1; min-width: 120px; }
+.hs-num {
+  font-family: var(--f-display);
+  font-size: 2rem;
+  color: var(--gold-l);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hs-lbl { font-size: .75rem; color: var(--text-muted); line-height: 1.4; text-transform: uppercase; letter-spacing: .05em; }
+
+/* ── BULLET NAV ── */
+.bullet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+.bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .18s, background .18s, transform .18s;
+  cursor: pointer;
+}
+.bullet-item:hover {
+  border-color: var(--blue-l);
+  background: rgba(30,90,158,.12);
+  transform: translateX(3px);
+  color: var(--white);
+}
+.bullet-num {
+  font-family: var(--f-mono);
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--gold);
+  background: rgba(200,168,75,.12);
+  border: 1px solid rgba(200,168,75,.25);
+  border-radius: 4px;
+  padding: 2px 7px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  letter-spacing: .04em;
+}
+.bullet-text {
+  font-size: .88rem;
+  line-height: 1.45;
+}
+.bullet-text strong {
+  display: block;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.bullet-text span {
+  font-size: .78rem;
+  color: var(--text-muted);
+}
+.bullet-arrow {
+  margin-left: auto;
+  color: var(--text-dim);
+  font-size: .85rem;
+  flex-shrink: 0;
+  align-self: center;
+  transition: color .18s, transform .18s;
+}
+.bullet-item:hover .bullet-arrow { color: var(--blue-xl); transform: translateX(3px); }
+
+/* ── SECTION CARDS ── */
+.section-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--gap);
+  margin-top: 24px;
+}
+.sec-card {
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+  padding: 24px;
+  text-decoration: none;
+  display: flex; flex-direction: column;
+  transition: border-color .2s, transform .2s;
+}
+.sec-card:hover { border-color: var(--blue-l); transform: translateY(-3px); }
+.sec-card-num {
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.sec-card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+.sec-card-title {
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+.sec-card-desc {
+  font-size: .82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  flex: 1;
+}
+.sec-card-cta {
+  display: flex; align-items: center; gap: 5px;
+  margin-top: 16px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--blue-xl);
+}
+.sec-card:hover .sec-card-cta { color: var(--gold-l); }
+
+/* color accents per section */
+.sec-card.c-gold { border-top: 2px solid var(--gold); }
+.sec-card.c-blue { border-top: 2px solid var(--blue-l); }
+.sec-card.c-green { border-top: 2px solid var(--green-l); }
+.sec-card.c-amber { border-top: 2px solid var(--amber); }
+.sec-card.c-red { border-top: 2px solid #c05050; }
+
+/* download strip */
+.dl-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.dl-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 20px;
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  text-decoration: none;
+  transition: border-color .2s;
+}
+.dl-item:hover { border-color: var(--gold); }
+.dl-icon { font-size: 1.5rem; flex-shrink: 0; }
+.dl-info strong { display: block; font-size: .88rem; color: var(--white); margin-bottom: 2px; }
+.dl-info span { font-size: .75rem; color: var(--text-muted); }
+.dl-badge {
+  margin-left: auto;
+  font-size: .68rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  background: rgba(200,168,75,.15);
+  color: var(--gold-l);
+  border-radius: 20px;
+  border: 1px solid rgba(200,168,75,.3);
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">URBI<span>.A.</span><small>IPPUC · Curitiba</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Início</a></li>
+    <li><a href="resumo-executivo.html">Resumo</a></li>
+    <li><a href="contextualizacao.html">Contexto</a></li>
+    <li><a href="diagnostico.html">Diagnóstico</a></li>
+    <li><a href="metodologia.html">Metodologia</a></li>
+    <li><a href="implementacao.html">Implementação</a></li>
+    <li><a href="indicadores.html">Indicadores</a></li>
+    <li><a href="participacao.html">Participação</a></li>
+  </ul>
+  <a href="downloads.html" class="nav-dl">↓ Downloads</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">IPPUC · Plano Diretor de Curitiba · 2025</div>
+    <h1>Dados públicos como<br><em>ativo estratégico</em><br>da cidade</h1>
+    <p class="hero-sub">
+      O URBI.A. transforma 125 indicadores do Plano Diretor em inteligência contínua,
+      disponível para o gestor em tempo real e para o cidadão em linguagem compreensível.
+      Metodologia ágil: primeiro resultado em 15 dias.
+    </p>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-num">125</div><div class="hs-lbl">Indicadores do<br>Plano Diretor</div></div>
+      <div class="hs"><div class="hs-num">7</div><div class="hs-lbl">Eixos temáticos<br>monitorados</div></div>
+      <div class="hs"><div class="hs-num">20</div><div class="hs-lbl">Tarefas quinzenais<br>de entrega</div></div>
+      <div class="hs"><div class="hs-num">12</div><div class="hs-lbl">Dimensões DMBOK<br>implementadas</div></div>
+      <div class="hs"><div class="hs-num">15d</div><div class="hs-lbl">Até o primeiro<br>dashboard ao vivo</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="page">
+
+  <!-- SEÇÕES -->
+  <section style="margin-bottom:56px">
+    <div class="sec-label">Navegação por capítulo</div>
+    <h2 class="sec-title">O que está documentado aqui</h2>
+    <div class="section-cards">
+      <a href="resumo-executivo.html" class="sec-card c-gold">
+        <div class="sec-card-num">Capítulo I</div>
+        <div class="sec-card-icon">🎯</div>
+        <div class="sec-card-title">Resumo Executivo</div>
+        <div class="sec-card-desc">26 proposições acionáveis sobre o URBI.A.: entregas, prazos, riscos mitigados e retorno. Leitura de 5 minutos para a Presidência e Diretorias.</div>
+        <div class="sec-card-cta">Ler resumo</div>
+      </a>
+      <a href="contextualizacao.html" class="sec-card c-blue">
+        <div class="sec-card-num">Capítulo II</div>
+        <div class="sec-card-icon">🏛️</div>
+        <div class="sec-card-title">Contextualização Estratégica</div>
+        <div class="sec-card-desc">Missão do IPPUC, cadeia de motivação ArchiMate e como o dado público protege o projeto de trocas de gestão política.</div>
+        <div class="sec-card-cta">Ver contexto</div>
+      </a>
+      <a href="diagnostico.html" class="sec-card c-amber">
+        <div class="sec-card-num">Capítulo III</div>
+        <div class="sec-card-icon">🔍</div>
+        <div class="sec-card-title">Diagnóstico de Maturidade</div>
+        <div class="sec-card-desc">Onde o IPPUC está hoje nas 12 dimensões DMBOK e o que isso custa operacionalmente. Radiografia dos 125 indicadores.</div>
+        <div class="sec-card-cta">Ver diagnóstico</div>
+      </a>
+      <a href="metodologia.html" class="sec-card c-blue">
+        <div class="sec-card-num">Capítulo IV</div>
+        <div class="sec-card-icon">📐</div>
+        <div class="sec-card-title">Fundamentação Metodológica</div>
+        <div class="sec-card-desc">DAMA-DMBOK, Pirâmide Aiken, Zachman Framework e ArchiMate: por que esses referenciais e como se complementam.</div>
+        <div class="sec-card-cta">Ver metodologia</div>
+      </a>
+      <a href="implementacao.html" class="sec-card c-green">
+        <div class="sec-card-num">Capítulo V</div>
+        <div class="sec-card-icon">⚙️</div>
+        <div class="sec-card-title">Painel de Implementação</div>
+        <div class="sec-card-desc">Cronograma interativo das 20 tarefas quinzenais, pirâmide Aiken animada, radar de maturidade DMBOK e diagramas de contexto.</div>
+        <div class="sec-card-cta">Abrir painel</div>
+      </a>
+      <a href="indicadores.html" class="sec-card c-amber">
+        <div class="sec-card-num">Capítulo VI</div>
+        <div class="sec-card-icon">📊</div>
+        <div class="sec-card-title">Radiografia dos Indicadores</div>
+        <div class="sec-card-desc">API vs webscraping por dashboard. Os 18 indicadores com acesso estável e a estratégia de resiliência para os 104 dependentes de extração automatizada.</div>
+        <div class="sec-card-cta">Ver indicadores</div>
+      </a>
+      <a href="participacao.html" class="sec-card c-green">
+        <div class="sec-card-num">Capítulo VII</div>
+        <div class="sec-card-icon">🏙️</div>
+        <div class="sec-card-title">Participação Cidadã</div>
+        <div class="sec-card-desc">Login com Google e Gov.br, comentários geo-referenciados, integração com Google Maps e redes sociais, gamificação e Modo Escola.</div>
+        <div class="sec-card-cta">Ver participação</div>
+      </a>
+      <a href="downloads.html" class="sec-card c-gold">
+        <div class="sec-card-num">Downloads</div>
+        <div class="sec-card-icon">📁</div>
+        <div class="sec-card-title">Documentos Completos</div>
+        <div class="sec-card-desc">Relatório completo de consultoria, cronograma de implementação e planilha de indicadores mapeados — todos disponíveis para download.</div>
+        <div class="sec-card-cta">Baixar documentos</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- BULLETS RESUMO EXECUTIVO (clicáveis) -->
+  <section style="margin-bottom:56px" class="reveal">
+    <div class="sec-label">Resumo executivo — 26 proposições</div>
+    <h2 class="sec-title">Clique em qualquer bullet para aprofundar</h2>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:24px;max-width:600px;">
+      Cada proposição leva à seção do documento que detalha a decisão, o entregável e a justificativa metodológica correspondente.
+    </p>
+    <div class="bullet-grid" id="bullet-grid"></div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- DOWNLOADS -->
+  <section class="reveal">
+    <div class="sec-label">Documentos de referência</div>
+    <h2 class="sec-title">Downloads disponíveis</h2>
+    <div class="dl-strip">
+      <a class="dl-item" href="https://docs.google.com/document/d/1CJyXo20QBQcJ84Fl--PsNktvDWQxuknN/edit?usp=drive_link&ouid=114984567444450849955&rtpof=true&sd=true" target="_blank" rel="noopener">
+        <div class="dl-icon">📄</div>
+        <div class="dl-info">
+          <strong>Relatório de Consultoria Completo</strong>
+          <span>URBI.A. — Estratégia de Transformação Digital · IPPUC 2025</span>
+        </div>
+        <div class="dl-badge">Google Docs</div>
+      </a>
+      <a class="dl-item" href="https://docs.google.com/spreadsheets/d/1LhlfRMHerPC3rkDatncZvU7jVKheXJm7/edit?usp=drive_link&ouid=114984567444450849955&rtpof=true&sd=true" target="_blank" rel="noopener">
+        <div class="dl-icon">📅</div>
+        <div class="dl-info">
+          <strong>Cronograma de Implementação</strong>
+          <span>20 tarefas quinzenais · Radar de maturidade · Reuniões de governança</span>
+        </div>
+        <div class="dl-badge">Google Sheets</div>
+      </a>
+      <a class="dl-item" href="https://docs.google.com/spreadsheets/d/1jeBXSB5akT-LqVCNl9RL_Op2HFY9iinZ/edit?usp=drive_link&ouid=114984567444450849955&rtpof=true&sd=true" target="_blank" rel="noopener">
+        <div class="dl-icon">📊</div>
+        <div class="dl-info">
+          <strong>Indicadores Mapeados</strong>
+          <span>125 indicadores · API vs webscraping · Fontes e endpoints</span>
+        </div>
+        <div class="dl-badge">Google Sheets</div>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span>URBI.A. · Sistema Corporativo de Dados e Inteligência Organizacional</span>
+  <span>IPPUC · Instituto de Pesquisa e Planejamento Urbano de Curitiba · 2025</span>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+const BULLETS = [
+  {n:'01', title:'Primeiro resultado em 15 dias', desc:'Dashboard de Mobilidade ao vivo na primeira quinzena', href:'resumo-executivo.html#b01'},
+  {n:'02', title:'12 dimensões DMBOK com entregáveis definidos', desc:'Cada função tem prazo, responsável e verificável no cronograma', href:'resumo-executivo.html#b02'},
+  {n:'03', title:'Infraestrutura construída antes do primeiro relatório', desc:'PostgreSQL/PostGIS e 5 pipelines ativos na semana 1', href:'resumo-executivo.html#b03'},
+  {n:'04', title:'Dicionário comum encerra a disputa dos números', desc:'Dicionário de Dados v1.0 publicado na segunda quinzena', href:'resumo-executivo.html#b04'},
+  {n:'05', title:'12 conectores substituem semanas de trabalho manual', desc:'IBGE, RAIS, DATASUS, SANEPAR, SESP e mais — automáticos', href:'resumo-executivo.html#b05'},
+  {n:'06', title:'LGPD entregue como produto, não como intenção', desc:'Política de segurança, RBAC e k-anonimato do CadÚnico', href:'resumo-executivo.html#b06'},
+  {n:'07', title:'Catálogo de metadados é pré-requisito da IA', desc:'125 indicadores descritos em dimensões semântica, técnica e operacional', href:'resumo-executivo.html#b07'},
+  {n:'08', title:'Blueprint arquitetural protege o investimento', desc:'Data Lake → Staging → DW → BI documentado e vinculante', href:'resumo-executivo.html#b08'},
+  {n:'09', title:'125 regras de validação encerram inconsistências', desc:'QA Report mensal publicado para todas as áreas produtoras', href:'resumo-executivo.html#b09'},
+  {n:'10', title:'Política de dados protege de trocas de gestão', desc:'CGD constituído e Política de Dados assinada pela Direção', href:'resumo-executivo.html#b10'},
+  {n:'11', title:'125 metodologias auditáveis por qualquer cidadão', desc:'Portal de Documentação lançado na 14ª quinzena', href:'resumo-executivo.html#b11'},
+  {n:'12', title:'Registro único elimina versões divergentes de dados', desc:'MDM sincroniza macrozonas em todos os sistemas do IPPUC', href:'resumo-executivo.html#b12'},
+  {n:'13', title:'5 anos de histórico para a revisão do Plano Diretor', desc:'Data Warehouse com tendências por macrozona — Painel Executivo', href:'resumo-executivo.html#b13'},
+  {n:'14', title:'Capacidade preditiva a partir da 19ª quinzena (9 meses)', desc:'Clustering de vulnerabilidade, projeção de déficit e simulação de políticas', href:'implementacao.html'},
+  {n:'15', title:'Infraestrutura de hoje é o corpus de treino da IA de amanhã', desc:'Em 24–36 meses, cada dado torna-se conjunto de treinamento para ML', href:'resumo-executivo.html#b15'},
+  {n:'16', title:'Assistente de linguagem natural viável em 36 meses', desc:'Consultas ao PD em linguagem comum, sem intermediação analítica', href:'resumo-executivo.html#b16'},
+  {n:'17', title:'Custo da inação supera o da implantação em 18 meses', desc:'Consolidação manual + passivo LGPD + métricas divergentes', href:'resumo-executivo.html#b17'},
+  {n:'18', title:'Janela de oportunidade política e técnica é única', desc:'PD 2025 + nova concessão de transporte + LGPD convergem agora', href:'resumo-executivo.html#b18'},
+  {n:'19', title:'Arquitetura aberta: zero dependência de fornecedor único', desc:'PostgreSQL, Python e Apache Airflow — código aberto, sem lock-in', href:'metodologia.html'},
+  {n:'20', title:'Maturidade DMBOK do nível 1 para o nível 3 em 12 meses', desc:'Nível 4–5 em dimensões-chave ao final de 36 meses', href:'diagnostico.html'},
+  {n:'21', title:'83,2% dos indicadores dependem de webscraping, gerido com transparência', desc:'Alertas automáticos, cache histórico e advocacia por APIs oficiais', href:'indicadores.html'},
+  {n:'22', title:'Dashboard de Habitação: 100% dos 26 indicadores via webscraping', desc:'Estratégia de resiliência e diálogo com COHAB-CT, FJP e CadÚnico', href:'indicadores.html#habitacao'},
+  {n:'23', title:'Dashboard de Mobilidade: 28% via API — o mais resiliente', desc:'8 indicadores estáveis via GeoCuritiba, IBGE e TemBici', href:'indicadores.html#mobilidade'},
+  {n:'24', title:'Cidadão acessa com um clique — sem cadastro adicional', desc:'Google, Gov.br, Meta e Apple via OAuth 2.0 com base legal LGPD', href:'participacao.html#login'},
+  {n:'25', title:'Gamificação transforma monitoramento em missão cívica', desc:'4 níveis de progressão, desafios mensais e Certificado do IPPUC', href:'participacao.html#gamificacao'},
+  {n:'26', title:'Redes sociais e Google Maps como dado qualificado do PD', desc:'Sempre opt-in: o cidadão traz o dado, o sistema nunca extrai sem ação', href:'participacao.html#redes'},
+];
+
+const grid = document.getElementById('bullet-grid');
+BULLETS.forEach(b => {
+  const a = document.createElement('a');
+  a.className = 'bullet-item';
+  a.href = b.href;
+  a.innerHTML = `
+    <div class="bullet-num">${b.n}</div>
+    <div class="bullet-text">
+      <strong>${b.title}</strong>
+      <span>${b.desc}</span>
+    </div>
+    <div class="bullet-arrow">›</div>`;
+  grid.appendChild(a);
+});
+</script>
+</body>
+</html>
