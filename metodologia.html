@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metodologia — URBI.A. · IPPUC</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.phase-strip {
+  border-left: 4px solid var(--blue-l);
+  padding: 14px 20px;
+  background: var(--ink3);
+  border-radius: 0 var(--r) var(--r) 0;
+  margin-bottom: 10px;
+}
+.phase-strip.p2 { border-left-color: var(--green-l); }
+.phase-strip.p3 { border-left-color: var(--gold); }
+.phase-strip.p4 { border-left-color: #c05050; }
+.phase-label { font-family: var(--f-mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-dim); margin-bottom:4px; }
+.phase-title { font-size:.95rem; font-weight:600; color:var(--white); margin-bottom:3px; }
+.phase-dims { font-size:.82rem; color:var(--text-muted); }
+.phase-period { font-size:.75rem; color:var(--text-dim); font-style:italic; margin-top:4px; }
+.ref-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.ref-list li {
+  font-size:.85rem; color:var(--text-muted); line-height:1.55;
+  padding-left:16px; border-left:2px solid var(--line);
+}
+.ref-list li strong { color:var(--white); }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">URBI<span>.A.</span><small>IPPUC · Curitiba</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="resumo-executivo.html">Resumo</a></li>
+    <li><a href="contextualizacao.html">Contexto</a></li>
+    <li><a href="diagnostico.html">Diagnóstico</a></li>
+    <li><a href="metodologia.html" class="active">Metodologia</a></li>
+    <li><a href="implementacao.html">Implementação</a></li>
+    <li><a href="indicadores.html">Indicadores</a></li>
+    <li><a href="participacao.html">Participação</a></li>
+  </ul>
+  <a href="downloads.html" class="nav-dl">↓ Downloads</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Capítulo IV · Gerências e Arquitetos</div>
+    <h1>Fundamentação <em>Metodológica</em></h1>
+    <p class="hero-sub">DAMA-DMBOK, Pirâmide Aiken, Zachman Framework e ArchiMate: quatro referenciais complementares que estruturam o URBI.A.</p>
+  </div>
+</div>
+
+<main class="page">
+
+  <div class="callout reveal">
+    <strong>Ponto de partida</strong>
+    <p>A estratégia de implementação do URBI.A. está ancorada em referenciais metodológicos de reconhecida adoção internacional, selecionados pela complementaridade entre si e pela adequação ao contexto de uma autarquia de planejamento urbano com mandato legal sobre o Plano Diretor.</p>
+  </div>
+
+  <!-- DMBOK -->
+  <section style="margin:40px 0">
+    <div class="sec-label reveal">Referencial 1</div>
+    <h2 class="sec-title reveal">DAMA-DMBOK, 2.ª edição (DAMA International, 2017)</h2>
+    <div class="prose reveal">
+      <p>O Data Management Body of Knowledge organiza as boas práticas em gestão de dados em onze áreas de conhecimento, tendo a Governança de Dados como eixo central. O DMBOK estabelece que os dados são ativos corporativos que devem ser gerenciados com o mesmo rigor dispensado aos ativos financeiros e humanos.</p>
+      <p>Para o IPPUC, adotar o DMBOK como referencial significa tratar os 125 indicadores do Plano Diretor como patrimônio público mensurável: com donos definidos (Data Owners), qualidade monitorada, acesso controlado e linhagem documentada. Trata-se de uma escolha sobre a forma como o Instituto quer responder ao princípio constitucional de eficiência na administração pública (art. 37 da CF/1988).</p>
+    </div>
+  </section>
+
+  <!-- AIKEN -->
+  <section style="margin:40px 0">
+    <div class="sec-label reveal">Referencial 2</div>
+    <h2 class="sec-title reveal">Pirâmide de Maturidade de Dados — Peter Aiken (2016)</h2>
+    <div class="prose reveal">
+      <p>A Pirâmide Aiken define a sequência de implementação das dimensões DMBOK em ordem de dependência técnica. Não é possível garantir qualidade de dados sem metadados estruturados; não é possível estruturar metadados sem modelo de dados; não é possível modelar sem sistema de armazenamento. Pular etapas gera retrabalho, não aceleração.</p>
+      <p>No URBI.A., essa sequência organiza as 20 tarefas quinzenais em quatro fases progressivas:</p>
+    </div>
+    <div style="margin-top:20px">
+      <div class="phase-strip reveal">
+        <div class="phase-label">Fase 1 · Q1–Q6</div>
+        <div class="phase-title">Base Operacional</div>
+        <div class="phase-dims">Armazenamento · Modelagem · Integração · Segurança</div>
+        <div class="phase-period">Jan–Mar 2025 · Primeiros 4 dashboards ao vivo</div>
+      </div>
+      <div class="phase-strip p2 reveal">
+        <div class="phase-label">Fase 2 · Q7–Q9</div>
+        <div class="phase-title">Controle e Rastreabilidade</div>
+        <div class="phase-dims">Metadados · Arquitetura · Qualidade de Dados</div>
+        <div class="phase-period">Abr–Jun 2025 · Catálogo de metadados e QA Report mensais</div>
+      </div>
+      <div class="phase-strip p3 reveal">
+        <div class="phase-label">Fase 3 · Q10–Q14</div>
+        <div class="phase-title">Governança Estruturada</div>
+        <div class="phase-dims">Governança · Documentação · Dados Mestre (MDM)</div>
+        <div class="phase-period">Jul–Set 2025 · CGD constituído, Política de Dados assinada</div>
+      </div>
+      <div class="phase-strip p4 reveal">
+        <div class="phase-label">Fase 4 · Q15–Q20</div>
+        <div class="phase-title">Valor Analítico</div>
+        <div class="phase-dims">Data Warehousing e BI · Big Data e Analytics</div>
+        <div class="phase-period">Out–Dez 2025 · Painel Executivo, modelos preditivos e participação cidadã</div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <a href="implementacao.html" class="card" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;font-size:.82rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver painel interativo das 20 tarefas →</a>
+    </div>
+  </section>
+
+  <!-- ZACHMAN -->
+  <section style="margin:40px 0">
+    <div class="sec-label reveal">Referencial 3</div>
+    <h2 class="sec-title reveal">Zachman Framework (Zachman, 1987)</h2>
+    <div class="prose reveal">
+      <p>O Zachman Framework organiza o conhecimento arquitetural institucional como uma matriz de seis perspectivas por seis interrogativos, mapeando desde a visão estratégica da Presidência do IPPUC até os componentes técnicos operados pelas equipes de dados.</p>
+      <p>No contexto desta iniciativa, o framework evidenciou lacunas nas colunas "Quem", pela ausência de definição formal de responsáveis pelos dados, e "Por quê", pela ausência de motivação documentada que vincule os sistemas de informação às metas do Plano Diretor. O URBI.A. preenche essas lacunas de forma direta.</p>
+    </div>
+  </section>
+
+  <!-- ARCHIMATE -->
+  <section style="margin:40px 0">
+    <div class="sec-label reveal">Referencial 4</div>
+    <h2 class="sec-title reveal">ArchiMate 3.1 (The Open Group, 2019)</h2>
+    <div class="prose reveal">
+      <p>Linguagem de modelagem de arquitetura empresarial adotada para representar a cadeia de motivação do URBI.A., conectando os stakeholders primários, os drivers que os afetam, os objetivos do Plano Diretor e os serviços de dados que o sistema entrega.</p>
+      <p>Essa representação transforma o URBI.A. de projeto técnico em instrumento verificável de cumprimento do Plano Diretor, com consequências diretas para a sustentabilidade institucional da iniciativa ao longo de ciclos de gestão.</p>
+    </div>
+    <a href="contextualizacao.html" class="card" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;padding:10px 18px;font-size:.82rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver as 3 cadeias ArchiMate reais de Curitiba →</a>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- REFERÊNCIAS -->
+  <section class="reveal">
+    <div class="sec-label">Referências bibliográficas</div>
+    <h2 class="sec-title">Obras citadas</h2>
+    <ul class="ref-list" style="margin-top:20px">
+      <li><strong>AIKEN, Peter; GORMAN, Michael M.</strong> The Case for the Chief Data Officer. Waltham: Morgan Kaufmann, 2013.</li>
+      <li><strong>BATTY, Michael.</strong> The New Science of Cities. Cambridge: MIT Press, 2013.</li>
+      <li><strong>BRASIL.</strong> Lei n.º 12.527/2011 — Lei de Acesso à Informação. Brasília, 2011.</li>
+      <li><strong>BRASIL.</strong> Lei n.º 13.709/2018 — Lei Geral de Proteção de Dados Pessoais (LGPD). Brasília, 2018.</li>
+      <li><strong>DAMA INTERNATIONAL.</strong> DAMA-DMBOK: Data Management Body of Knowledge. 2. ed. Bradley Beach: Technics Publications, 2017.</li>
+      <li><strong>FJP — FUNDAÇÃO JOÃO PINHEIRO.</strong> Déficit habitacional no Brasil 2023. Belo Horizonte: FJP, 2023.</li>
+      <li><strong>IPPUC.</strong> Diagnóstico Integrado do Plano Diretor de Curitiba — G11. Curitiba: IPPUC, 2024.</li>
+      <li><strong>KITCHIN, Rob.</strong> The Data Revolution. London: SAGE, 2014.</li>
+      <li><strong>MEIJER, Albert; BOLÍVAR, Manuel P. R.</strong> Governing the smart city. International Review of Administrative Sciences, v. 82, n. 2, 2016.</li>
+      <li><strong>THE OPEN GROUP.</strong> ArchiMate 3.1 Specification. Zaltbommel: Van Haren Publishing, 2019.</li>
+      <li><strong>ZACHMAN, John A.</strong> A Framework for Information Systems Architecture. IBM Systems Journal, v. 26, n. 3, 1987.</li>
+    </ul>
+  </section>
+
+</main>
+<footer class="footer">
+  <span>URBI.A. · IPPUC · Curitiba · 2025</span>
+  <a href="downloads.html">↓ Baixar documentos completos</a>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
