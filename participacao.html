@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Participação Cidadã — URBI.A. · IPPUC</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.login-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; margin-top:20px;
+}
+.login-card {
+  background:var(--ink3); border:1px solid var(--line); border-radius:var(--r);
+  padding:16px; display:flex; flex-direction:column; gap:8px;
+}
+.login-logo { font-size:1.4rem; }
+.login-name { font-size:.9rem; font-weight:700; color:var(--white); }
+.login-data { font-size:.78rem; color:var(--text-muted); line-height:1.5; }
+.login-why  { font-size:.75rem; color:var(--text-dim); border-top:1px solid var(--line); padding-top:8px; line-height:1.45; }
+
+.level-strip {
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:14px;
+  background:var(--ink3); border:1px solid var(--line); border-radius:var(--r);
+  padding:14px 18px; margin-bottom:8px;
+}
+.level-badge {
+  width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; flex-shrink:0;
+}
+.level-info strong { font-size:.92rem; color:var(--white); display:block; margin-bottom:2px; }
+.level-info span { font-size:.8rem; color:var(--text-muted); }
+.level-pts {
+  font-family:var(--f-mono); font-size:.8rem; color:var(--gold); white-space:nowrap;
+  text-align:right;
+}
+
+.contrib-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; margin-top:20px;
+}
+.contrib-card {
+  background:var(--ink3); border:1px solid var(--line); border-radius:var(--r); padding:16px;
+}
+.contrib-icon { font-size:1.3rem; margin-bottom:8px; }
+.contrib-type { font-size:.88rem; font-weight:600; color:var(--white); margin-bottom:4px; }
+.contrib-desc { font-size:.8rem; color:var(--text-muted); line-height:1.5; }
+.contrib-pts {
+  margin-top:10px; font-family:var(--f-mono); font-size:.78rem;
+  color:var(--gold); font-weight:600;
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">URBI<span>.A.</span><small>IPPUC · Curitiba</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="resumo-executivo.html">Resumo</a></li>
+    <li><a href="contextualizacao.html">Contexto</a></li>
+    <li><a href="diagnostico.html">Diagnóstico</a></li>
+    <li><a href="metodologia.html">Metodologia</a></li>
+    <li><a href="implementacao.html">Implementação</a></li>
+    <li><a href="indicadores.html">Indicadores</a></li>
+    <li><a href="participacao.html" class="active">Participação</a></li>
+  </ul>
+  <a href="downloads.html" class="nav-dl">↓ Downloads</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Capítulo VII · Portal Cidadão</div>
+    <h1>O Plano Diretor como<br><em>missão coletiva</em></h1>
+    <p class="hero-sub">Login com um clique, comentários geo-referenciados, integração com Google Maps e redes sociais, e gamificação que transforma o monitoramento urbano em serviço cívico.</p>
+  </div>
+</div>
+
+<main class="page">
+
+  <div class="callout gold reveal">
+    <strong>O princípio orientador</strong>
+    <p>O melhor dado sobre a calçada de uma rua não está no sistema da URBS. Está no cidadão que caminha por ela todo dia. O URBI.A. cria o canal formal para que esse conhecimento local, voluntário, qualificado e consentido, enriqueça o monitoramento do Plano Diretor. Não é vigilância: é colaboração.</p>
+  </div>
+
+  <!-- LOGIN -->
+  <section id="login" style="margin:48px 0;scroll-margin-top:80px">
+    <div class="sec-label reveal">Acesso sem atrito</div>
+    <h2 class="sec-title reveal">Autenticação social — um clique, sem cadastro</h2>
+    <p class="prose reveal" style="max-width:680px;margin-bottom:4px">A barreira do cadastro é o maior obstáculo à participação cidadã digital. O URBI.A. elimina essa barreira com autenticação via identidades já existentes — sempre com consentimento explícito e base legal nos termos do art. 7.º, I, da LGPD.</p>
+    <div class="login-grid reveal">
+      <div class="login-card">
+        <div class="login-logo">🟢</div>
+        <div class="login-name">Google (OAuth 2.0)</div>
+        <div class="login-data">Nome, e-mail verificado e foto (com consentimento)</div>
+        <div class="login-why">Maior penetração entre os habitantes de Curitiba. Acesso em um clique, sem senha adicional.</div>
+      </div>
+      <div class="login-card">
+        <div class="login-logo">🇧🇷</div>
+        <div class="login-name">Gov.br (Acesso Nacional)</div>
+        <div class="login-data">CPF verificado, nível de segurança e dados básicos</div>
+        <div class="login-why">Identidade nacional verificada — indicado para audiências públicas e contribuições com peso institucional.</div>
+      </div>
+      <div class="login-card">
+        <div class="login-logo">🔵</div>
+        <div class="login-name">Facebook / Instagram (Meta)</div>
+        <div class="login-data">Nome, foto e e-mail (com consentimento)</div>
+        <div class="login-why">Ampla base de usuários urbanos, especialmente públicos com menor familiaridade com e-mail corporativo.</div>
+      </div>
+      <div class="login-card">
+        <div class="login-logo">⚫</div>
+        <div class="login-name">Apple (Sign in with Apple)</div>
+        <div class="login-data">E-mail (podendo ser anonimizado pela Apple)</div>
+        <div class="login-why">Perfil orientado à privacidade: atrai usuários com maior preocupação com proteção de dados pessoais.</div>
+      </div>
+    </div>
+    <div class="callout green reveal" style="margin-top:20px">
+      <strong>Acesso anônimo sempre disponível</strong>
+      <p>Todos os dados públicos podem ser visualizados sem qualquer cadastro. A autenticação é exigida apenas para comentar, avaliar indicadores e acumular pontos.</p>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- CONTRIBUIÇÕES -->
+  <section style="margin:48px 0">
+    <div class="sec-label reveal">Tipos de contribuição</div>
+    <h2 class="sec-title reveal">O que o cidadão pode oferecer ao monitoramento do PD</h2>
+    <div class="contrib-grid reveal">
+      <div class="contrib-card">
+        <div class="contrib-icon">💬</div>
+        <div class="contrib-type">Comentário geral</div>
+        <div class="contrib-desc">Campo de texto associado a um indicador ou eixo temático. Visível para todos os usuários autenticados.</div>
+        <div class="contrib-pts">20 pontos</div>
+      </div>
+      <div class="contrib-card">
+        <div class="contrib-icon">📍</div>
+        <div class="contrib-type">Comentário geo-referenciado</div>
+        <div class="contrib-desc">O cidadão seleciona um ponto no mapa de Curitiba e associa o relato a uma localização precisa — dados que os sistemas institucionais não capturam.</div>
+        <div class="contrib-pts">35 pontos</div>
+      </div>
+      <div class="contrib-card">
+        <div class="contrib-icon">⭐</div>
+        <div class="contrib-type">Avaliação do indicador (1–5 estrelas)</div>
+        <div class="contrib-desc">Grau de concordância entre o indicador publicado e a percepção real da condição urbana no local de residência. Índice de percepção cidadã.</div>
+        <div class="contrib-pts">10 pontos</div>
+      </div>
+      <div class="contrib-card">
+        <div class="contrib-icon">📷</div>
+        <div class="contrib-type">Fotografia geo-localizada</div>
+        <div class="contrib-desc">Imagem com metadados EXIF de localização ou marcação manual no mapa. Evidência visual — especialmente relevante para mobilidade ativa e infraestrutura.</div>
+        <div class="contrib-pts">50 pontos</div>
+      </div>
+      <div class="contrib-card">
+        <div class="contrib-icon">🗳️</div>
+        <div class="contrib-type">Participação em consulta pública</div>
+        <div class="contrib-desc">Resposta a questionários oficiais do IPPUC sobre indicadores e políticas do Plano Diretor — com peso institucional reconhecido.</div>
+        <div class="contrib-pts">200 pontos</div>
+      </div>
+      <div class="contrib-card">
+        <div class="contrib-icon">👤</div>
+        <div class="contrib-type">Perfil completo</div>
+        <div class="contrib-desc">Preenchimento de todos os campos cadastrais — bairro, regional, eixos de interesse. Qualifica as contribuições para análise territorial.</div>
+        <div class="contrib-pts">100 pontos</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- GAMIFICAÇÃO -->
+  <section id="gamificacao" style="margin:48px 0;scroll-margin-top:80px">
+    <div class="sec-label reveal">Progressão e reconhecimento</div>
+    <h2 class="sec-title reveal">Os quatro níveis do cidadão colaborador</h2>
+    <p class="prose reveal" style="max-width:680px;margin-bottom:24px">A gamificação sustenta o engajamento ao longo do tempo — o principal desafio de qualquer plataforma participativa de dados públicos (Meijer e Bolívar, 2016).</p>
+    <div class="reveal">
+      <div class="level-strip">
+        <div class="level-badge" style="background:rgba(30,90,158,.15);border:1px solid var(--blue)">🌱</div>
+        <div class="level-info"><strong>Observador</strong><span>Acessa, visualiza e começa a contribuir com o monitoramento do PD</span></div>
+        <div class="level-pts">0–499 pts</div>
+      </div>
+      <div class="level-strip">
+        <div class="level-badge" style="background:rgba(42,122,82,.15);border:1px solid var(--green-l)">🤝</div>
+        <div class="level-info"><strong>Colaborador</strong><span>Contribui regularmente com dados locais — comentários, fotos e avaliações</span></div>
+        <div class="level-pts">500–1.999 pts</div>
+      </div>
+      <div class="level-strip">
+        <div class="level-badge" style="background:rgba(200,168,75,.15);border:1px solid var(--gold)">🏙️</div>
+        <div class="level-info"><strong>Guardião da Cidade</strong><span>Referência local — participa de consultas públicas e orienta outros cidadãos</span></div>
+        <div class="level-pts">2.000–9.999 pts</div>
+      </div>
+      <div class="level-strip">
+        <div class="level-badge" style="background:rgba(192,80,80,.15);border:1px solid #c05050">🏆</div>
+        <div class="level-info"><strong>Embaixador do Plano Diretor</strong><span>Certificado emitido pelo IPPUC · mencionado no relatório trimestral · acesso a consultas especiais</span></div>
+        <div class="level-pts">10.000+ pts</div>
+      </div>
+    </div>
+    <div class="callout reveal" style="margin-top:20px">
+      <strong>Modo Escola</strong>
+      <p>Professores criam grupos de alunos. Contribuições somam para um ranking escolar. O IPPUC emite Certificado de "Escola Parceira do Plano Diretor". Educação cívica articulada à coleta qualificada de dados urbanos, em parceria com a SME.</p>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- REDES SOCIAIS -->
+  <section id="redes" style="margin:48px 0;scroll-margin-top:80px">
+    <div class="sec-label reveal">Integração com plataformas externas</div>
+    <h2 class="sec-title reveal">Google Maps e redes sociais como dado qualificado</h2>
+    <p class="prose reveal" style="max-width:680px;margin-bottom:20px">O cidadão de Curitiba já comenta sobre a cidade: em avaliações do Google Maps, publicações no Instagram, relatos no Twitter/X. O URBI.A. cria a ponte legal e técnica para que essas contribuições voluntárias se convertam em dado qualificado para o monitoramento do Plano Diretor.</p>
+    <div class="callout" style="margin-bottom:20px">
+      <strong>Princípio de não-vigilância</strong>
+      <p>O URBI.A. nunca monitora nem extrai postagens de redes sociais sem ação explícita do cidadão. A integração funciona na direção contrária: é o cidadão que decide compartilhar sua contribuição pública com o sistema. Contribuições vinculadas podem ser removidas a qualquer momento pelo autor.</p>
+    </div>
+    <div class="tbl-wrap reveal">
+      <table>
+        <thead><tr><th>Plataforma</th><th>Como funciona (sempre opt-in)</th><th>Indicadores enriquecidos</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Google Maps Reviews</strong><br><span style="font-size:.75rem;color:var(--text-dim)">Google Places API</span></td>
+            <td>O cidadão autoriza o URBI.A. a importar suas avaliações públicas sobre locais em Curitiba como contribuições ao indicador correspondente</td>
+            <td>Avaliações de parques → indicadores de áreas verdes; terminais → transporte público</td>
+          </tr>
+          <tr>
+            <td><strong>Instagram / Threads</strong><br><span style="font-size:.75rem;color:var(--text-dim)">Instagram Basic Display API</span></td>
+            <td>Publicações com hashtags específicas (#PlanoDiretorCuritiba) podem ser vinculadas ao indicador pelo próprio autor, via botão "contribuir com o PD"</td>
+            <td>Evidências visuais de condições urbanas com geolocalização — mobilidade ativa e infraestrutura</td>
+          </tr>
+          <tr>
+            <td><strong>Twitter / X</strong><br><span style="font-size:.75rem;color:var(--text-dim)">Twitter API v2</span></td>
+            <td>Publicações geolocalizadas em Curitiba com hashtags monitoradas podem ser opcionalmente vinculadas pelo cidadão; o sistema não coleta sem ação explícita</td>
+            <td>Relatos em tempo real de eventos urbanos: alagamentos, bloqueios, falhas de transporte</td>
+          </tr>
+          <tr>
+            <td><strong>WhatsApp</strong><br><span style="font-size:.75rem;color:var(--text-dim)">WhatsApp Business API (futuro)</span></td>
+            <td>Canal oficial do IPPUC onde o cidadão reporta condições urbanas por texto e foto, processados e associados ao indicador correspondente</td>
+            <td>Maior penetração em populações de menor escolaridade digital — inclusão na participação cidadã</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- LGPD -->
+  <section class="reveal">
+    <div class="sec-label">Conformidade legal</div>
+    <h2 class="sec-title">Privacidade e consentimento na participação cidadã</h2>
+    <div class="g2" style="margin-top:20px;gap:10px">
+      <div class="card"><h3>Coleta mínima</h3><p>Apenas os dados necessários para cada funcionalidade. Login para comentar: somente ID anônimo e e-mail. Nenhum dado de comportamento coletado sem consentimento.</p></div>
+      <div class="card"><h3>Consentimento granular</h3><p>O cidadão escolhe individualmente se seu nome aparece nos comentários, se sua localização é pública e se quer receber notificações sobre indicadores que avaliou.</p></div>
+      <div class="card"><h3>Direito de exclusão</h3><p>Um botão "Excluir todas as minhas contribuições" apaga permanentemente todos os dados. Processado em até 72 horas, com confirmação por e-mail.</p></div>
+      <div class="card"><h3>RIPD específico</h3><p>Relatório de Impacto à Proteção de Dados para a camada de participação cidadã elaborado antes do lançamento público, cobrindo todos os fluxos de dados pessoais.</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>URBI.A. · IPPUC · Curitiba · 2025</span>
+  <a href="downloads.html">↓ Baixar documentos completos</a>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
