@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resumo Executivo — URBI.A. · IPPUC</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.bullet-section {
+  border-left: 2px solid var(--line);
+  padding-left: 24px;
+  margin-bottom: 40px;
+  scroll-margin-top: 80px;
+}
+.bullet-section:target {
+  border-left-color: var(--gold);
+}
+.bullet-section:target .b-num { color: var(--gold-l); background: rgba(200,168,75,.15); border-color: rgba(200,168,75,.4); }
+.b-num {
+  font-family: var(--f-mono);
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--blue-xl);
+  background: rgba(30,90,158,.15);
+  border: 1px solid rgba(46,117,182,.3);
+  border-radius: 4px;
+  padding: 3px 9px;
+  display: inline-block;
+  margin-bottom: 10px;
+  letter-spacing: .06em;
+}
+.b-title {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.b-body {
+  font-size: .92rem;
+  color: var(--text);
+  line-height: 1.75;
+  max-width: 720px;
+}
+.b-tag { margin-left: 8px; }
+
+/* group headers */
+.group-header {
+  display: flex; align-items: center; gap: 12px;
+  margin: 48px 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.group-header h3 {
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.group-header .g-tag {
+  font-family: var(--f-mono);
+  font-size: .66rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.toc {
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  columns: 2;
+  column-gap: 32px;
+}
+.toc a {
+  display: block;
+  font-size: .8rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 3px 0;
+  border-bottom: 1px dotted var(--line);
+  break-inside: avoid;
+  transition: color .15s;
+}
+.toc a:hover { color: var(--gold-l); }
+.toc a span { font-family: var(--f-mono); font-size: .7rem; color: var(--text-dim); margin-right: 6px; }
+@media (max-width:700px) { .toc { columns:1; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">URBI<span>.A.</span><small>IPPUC · Curitiba</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="resumo-executivo.html" class="active">Resumo</a></li>
+    <li><a href="contextualizacao.html">Contexto</a></li>
+    <li><a href="diagnostico.html">Diagnóstico</a></li>
+    <li><a href="metodologia.html">Metodologia</a></li>
+    <li><a href="implementacao.html">Implementação</a></li>
+    <li><a href="indicadores.html">Indicadores</a></li>
+    <li><a href="participacao.html">Participação</a></li>
+  </ul>
+  <a href="downloads.html" class="nav-dl">↓ Downloads</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Capítulo I · Presidência e Diretorias</div>
+    <h1>Resumo <em>Executivo</em></h1>
+    <p class="hero-sub">26 proposições que sintetizam os compromissos e entregas do URBI.A. Leitura de 5 a 10 minutos. Cada bullet corresponde a uma decisão verificável no cronograma.</p>
+  </div>
+</div>
+
+<main class="page">
+
+  <!-- TOC rápido -->
+  <div class="toc">
+    <a href="#b01"><span>01</span>Primeiro resultado em 15 dias</a>
+    <a href="#b02"><span>02</span>12 dimensões DMBOK com entregáveis</a>
+    <a href="#b03"><span>03</span>Infraestrutura antes do primeiro relatório</a>
+    <a href="#b04"><span>04</span>Dicionário comum — fim da disputa</a>
+    <a href="#b05"><span>05</span>12 conectores automáticos</a>
+    <a href="#b06"><span>06</span>LGPD como produto</a>
+    <a href="#b07"><span>07</span>Catálogo de metadados e IA</a>
+    <a href="#b08"><span>08</span>Blueprint arquitetural</a>
+    <a href="#b09"><span>09</span>125 regras de validação</a>
+    <a href="#b10"><span>10</span>Política de dados vs. trocas de gestão</a>
+    <a href="#b11"><span>11</span>Metodologias auditáveis</a>
+    <a href="#b12"><span>12</span>MDM — registro único</a>
+    <a href="#b13"><span>13</span>5 anos de histórico</a>
+    <a href="#b14"><span>14</span>Capacidade preditiva em 9 meses</a>
+    <a href="#b15"><span>15</span>Corpus de treino para IA</a>
+    <a href="#b16"><span>16</span>Assistente de linguagem natural</a>
+    <a href="#b17"><span>17</span>Custo da inação</a>
+    <a href="#b18"><span>18</span>Janela de oportunidade única</a>
+    <a href="#b19"><span>19</span>Arquitetura aberta</a>
+    <a href="#b20"><span>20</span>Maturidade DMBOK nível 1 → 3</a>
+    <a href="#b21"><span>21</span>83% webscraping — gerido com transparência</a>
+    <a href="#b22"><span>22</span>Habitação: 100% webscraping</a>
+    <a href="#b23"><span>23</span>Mobilidade: 28% via API</a>
+    <a href="#b24"><span>24</span>Acesso cidadão com 1 clique</a>
+    <a href="#b25"><span>25</span>Gamificação cívica</a>
+    <a href="#b26"><span>26</span>Redes sociais como dado qualificado</a>
+  </div>
+
+  <!-- GRUPO 1 -->
+  <div class="group-header">
+    <span class="g-tag">Bullets 1–13</span>
+    <h3>Entregas, prazos e ganhos para a gestão</h3>
+  </div>
+
+  <div id="b01" class="bullet-section reveal">
+    <div class="b-num">01</div>
+    <div class="b-title">O primeiro resultado chega em 15 dias, sem espera por sistemas completos.</div>
+    <div class="b-body">A metodologia de ciclos quinzenais garante que o Dashboard de Mobilidade, com 22 indicadores integrados de fontes como URBS, GeoCuritiba e DETRAN, esteja operacional na primeira quinzena após o início do projeto. Ao término do quinto mês, sete dashboards cobrem os 125 indicadores dos eixos temáticos do Plano Diretor, compondo a primeira visão integrada e automatizada da cidade disponibilizada pelo IPPUC em tempo real.</div>
+    <a href="implementacao.html" class="card" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver cronograma de implementação →</a>
+  </div>
+
+  <div id="b02" class="bullet-section reveal">
+    <div class="b-num">02</div>
+    <div class="b-title">Doze dimensões da gestão de dados, cada uma com entregável, prazo e responsável definidos.</div>
+    <div class="b-body">São implementadas as doze funções previstas no DAMA-DMBOK (2017): armazenamento, modelagem, integração, segurança, metadados, arquitetura, qualidade, governança, documentação, dados mestre, Data Warehousing/BI e Big Data/Analytics. Nenhuma dimensão é tratada como projeto paralelo ou etapa futura: cada uma tem entregável verificável e data de conclusão no cronograma.</div>
+    <a href="metodologia.html" class="card" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver fundamentos metodológicos →</a>
+  </div>
+
+  <div id="b03" class="bullet-section reveal">
+    <div class="b-num">03</div>
+    <div class="b-title">A infraestrutura de dados é construída antes do primeiro relatório.</div>
+    <div class="b-body">O banco de dados PostgreSQL/PostGIS, com suporte nativo a dados geoespaciais, adequado a uma cidade estruturada em macrozonas e regionais como Curitiba, é configurado na primeira quinzena com cinco pipelines automáticos de ingestão. A dependência de planilhas consolidadas manualmente é eliminada já no primeiro mês.</div>
+  </div>
+
+  <div id="b04" class="bullet-section reveal">
+    <div class="b-num">04</div>
+    <div class="b-title">Um dicionário comum encerra a disputa sobre qual número é o correto.</div>
+    <div class="b-body">Na segunda quinzena, é publicado o Dicionário de Dados v1.0, que define oficialmente o significado de cada indicador, a metodologia de cálculo e o responsável pela qualidade. A divergência de métricas entre fontes como COHAB-CT, FJP e CadÚnico, recorrente nas reuniões de gestão, passa a ter uma arbitragem técnica documentada e rastreável.</div>
+  </div>
+
+  <div id="b05" class="bullet-section reveal">
+    <div class="b-num">05</div>
+    <div class="b-title">Doze conectores automáticos substituem semanas de consolidação manual.</div>
+    <div class="b-body">Nas terceira e quarta quinzenas, são ativados doze conectores automáticos com IBGE, RAIS, DATASUS, SANEPAR, SESP e demais fontes. Relatórios que hoje exigem semanas de trabalho analítico são gerados automaticamente, com rastreabilidade completa da origem de cada dado, denominada data lineage pelos especialistas em governança de dados (DAMA International, 2017).</div>
+  </div>
+
+  <div id="b06" class="bullet-section reveal">
+    <div class="b-num">06</div>
+    <div class="b-title">A conformidade com a LGPD é entregue como produto, não declarada como intenção.</div>
+    <div class="b-body">Nas quinta e sexta quinzenas, a política de segurança é aprovada, o controle de acesso por perfis é configurado e os microdados sensíveis do CadÚnico são anonimizados mediante técnica de k-anonimato. O IPPUC deixa a zona de risco jurídico em que dados pessoais são tratados sem base legal documentada, situação que contraria o disposto no art. 7.º da Lei n.º 13.709/2018.</div>
+    <div class="callout" style="margin-top:14px">
+      <strong>Passivo jurídico atual</strong>
+      <p>Dados do CadÚnico e do DATASUS são utilizados em análises sem base legal documentada para todos os fluxos. A ausência de controle de acesso e registro de auditoria expõe o IPPUC a notificações da ANPD.</p>
+    </div>
+  </div>
+
+  <div id="b07" class="bullet-section reveal">
+    <div class="b-num">07</div>
+    <div class="b-title">Sem catálogo de metadados, a inteligência artificial não opera com precisão.</div>
+    <div class="b-body">Nas sétima e oitava quinzenas, é concluído o catálogo de metadados com os 125 indicadores do Plano Diretor, cada um descrito em suas dimensões semântica, técnica e operacional. Conforme demonstrado por Aiken e Gorman (2013), a qualidade dos metadados é o fator que mais impacta a precisão de modelos de aprendizado de máquina aplicados a dados públicos. Sem catálogo, qualquer iniciativa de inteligência artificial sobre esses dados produzirá resultados imprecisos.</div>
+  </div>
+
+  <div id="b08" class="bullet-section reveal">
+    <div class="b-num">08</div>
+    <div class="b-title">O blueprint arquitetural protege o investimento de decisões técnicas fragmentadas.</div>
+    <div class="b-body">Na nona quinzena, é aprovado o diagrama de arquitetura definitivo do URBI.A., documentando a cadeia completa desde a ingestão bruta no Data Lake até os painéis executivos de BI. Qualquer evolução futura do sistema, independentemente da gestão que a realize, deverá ser incremental e compatível com a arquitetura aprovada, evitando o desperdício que acompanha reconstruções do zero.</div>
+  </div>
+
+  <div id="b09" class="bullet-section reveal">
+    <div class="b-num">09</div>
+    <div class="b-title">Cento e vinte e cinco regras de validação automatizadas encerram a inconsistência entre fontes.</div>
+    <div class="b-body">Nas décima e décima-primeira quinzenas, são implantadas 125 regras de validação automática, uma para cada indicador do Plano Diretor. Um relatório mensal de qualidade é publicado para todas as áreas produtoras, tornando rastreáveis os problemas de dado em cada fonte e atribuindo responsabilidade técnica por sua resolução.</div>
+  </div>
+
+  <div id="b10" class="bullet-section reveal">
+    <div class="b-num">10</div>
+    <div class="b-title">A política de dados protege o projeto de trocas de gestão política.</div>
+    <div class="b-body">Nas décima-segunda e décima-terceira quinzenas, o Comitê de Governança de Dados é formalmente constituído e a Política de Dados é assinada pela Direção. Os dados do Plano Diretor deixam de ser propriedade informal de uma administração e passam a ser patrimônio institucional do IPPUC, com regras de uso, acesso e atualização documentadas e vinculantes.</div>
+  </div>
+
+  <div id="b11" class="bullet-section reveal">
+    <div class="b-num">11</div>
+    <div class="b-title">Cento e vinte e cinco metodologias de indicadores são publicadas e auditáveis por qualquer cidadão.</div>
+    <div class="b-body">Na décima-quarta quinzena, o Portal de Documentação do URBI.A. é lançado com todas as metodologias de cálculo dos indicadores disponíveis publicamente. Qualquer cidadão, vereador, pesquisador ou auditor pode verificar como cada número foi produzido, atendendo ao princípio de transparência ativa previsto na Lei de Acesso à Informação (Lei n.º 12.527/2011).</div>
+  </div>
+
+  <div id="b12" class="bullet-section reveal">
+    <div class="b-num">12</div>
+    <div class="b-title">O registro único de macrozonas elimina versões divergentes de dados geoespaciais.</div>
+    <div class="b-body">Nas décima-quinta e décima-sexta quinzenas, é implantado o MDM (Master Data Management). Macrozonas, fontes de dados e classificações territoriais são sincronizadas em todos os sistemas do IPPUC, eliminando a situação recorrente em que diferentes documentos apresentam recortes territoriais incompatíveis entre si.</div>
+  </div>
+
+  <div id="b13" class="bullet-section reveal">
+    <div class="b-num">13</div>
+    <div class="b-title">Cinco anos de histórico são disponibilizados para subsidiar a revisão do Plano Diretor.</div>
+    <div class="b-body">Nas décima-sétima e décima-oitava quinzenas, o Data Warehouse entra em operação com o histórico completo dos 125 indicadores carregado. O Painel Executivo do Plano Diretor é apresentado à Direção do IPPUC com análises de tendência por macrozona, comparativos temporais e exportação em formato PDF para reuniões do Conselho da Cidade. Pela primeira vez, a revisão do Plano Diretor poderá ser conduzida sobre dados históricos estruturados e auditáveis, em vez de estimativas pontuais.</div>
+  </div>
+
+  <!-- GRUPO 2 -->
+  <div class="group-header">
+    <span class="g-tag">Bullets 14–20</span>
+    <h3>Inteligência artificial, retorno e proteção do investimento</h3>
+  </div>
+
+  <div id="b14" class="bullet-section reveal">
+    <div class="b-num">14</div>
+    <div class="b-title">A capacidade preditiva é atingida na décima-nona quinzena, aproximadamente nove meses após o início.</div>
+    <div class="b-body">Na décima-nona quinzena, os primeiros modelos analíticos são ativados. O IPPUC passa a dispor de instrumentos para projetar cenários: identificação de macrozonas de vulnerabilidade crescente, projeção do déficit habitacional por faixa de renda, simulação do impacto territorial de políticas públicas antes de sua implementação. A distinção entre reatividade e antecipação, central na literatura de planejamento urbano baseado em dados (Batty, 2013), torna-se operacionalmente alcançável.</div>
+    <a href="implementacao.html" class="card" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver Painel de Implementação (Q19) →</a>
+  </div>
+
+  <div id="b15" class="bullet-section reveal">
+    <div class="b-num">15</div>
+    <div class="b-title">A infraestrutura construída hoje constitui o corpus de treinamento da inteligência artificial de amanhã.</div>
+    <div class="b-body">Cada pipeline configurado, cada metadado documentado e cada série histórica armazenada no URBI.A. compõem, no horizonte de 24 a 36 meses, o conjunto de treinamento para modelos de aprendizado de máquina aplicados ao planejamento urbano. Sem essa infraestrutura de base, a inteligência artificial aplicada à gestão da cidade permanece uma promessa sem substrato técnico.</div>
+  </div>
+
+  <div id="b16" class="bullet-section reveal">
+    <div class="b-num">16</div>
+    <div class="b-title">Em trinta e seis meses, torna-se tecnicamente viável um assistente de linguagem natural para consultas ao Plano Diretor.</div>
+    <div class="b-body">Com o Data Warehouse populado e o catálogo de metadados completo, é tecnicamente viável implantar um assistente de linguagem natural que permita a qualquer gestor consultar indicadores do Plano Diretor sem necessidade de intermediação analítica. Perguntas como "qual foi a tendência do déficit habitacional em Tatuquara nos últimos três anos?" poderiam ser respondidas em segundos, com a fonte do dado rastreável e disponível para conferência.</div>
+  </div>
+
+  <div id="b17" class="bullet-section reveal">
+    <div class="b-num">17</div>
+    <div class="b-title">O custo da inação supera o custo da implantação em menos de dezoito meses.</div>
+    <div class="b-body">Cada semana sem o URBI.A. é uma semana em que analistas consolidam manualmente dados de sete fontes distintas, relatórios chegam às reuniões com métricas divergentes e o IPPUC opera com exposição jurídica real à LGPD. O custo operacional acumulado e o risco jurídico latente superam o investimento de implantação do sistema em menos de dezoito meses, segundo estimativa conservadora baseada no tempo analítico dedicado à consolidação manual de dados.</div>
+  </div>
+
+  <div id="b18" class="bullet-section reveal">
+    <div class="b-num">18</div>
+    <div class="b-title">A janela de oportunidade política e técnica é única.</div>
+    <div class="b-body">A revisão do Plano Diretor de 2025, a reformulação da concessão de transporte coletivo e a vigência da LGPD convergem simultaneamente. Iniciar o URBI.A. em 2025 significa que a próxima revisão do Plano Diretor, prevista para 2030, será conduzida com cinco anos de histórico estruturado dos 125 indicadores. Postergar é, na prática, repetir em 2030 o mesmo diagnóstico de insuficiência de dados que motivou esta iniciativa em 2025.</div>
+  </div>
+
+  <div id="b19" class="bullet-section reveal">
+    <div class="b-num">19</div>
+    <div class="b-title">A arquitetura aberta elimina a dependência de fornecedor único.</div>
+    <div class="b-body">O URBI.A. é construído sobre PostgreSQL, Python e Apache Airflow, tecnologias de código aberto com amplas comunidades de suporte e sem custo de licenciamento. O IPPUC mantém controle integral sobre os dados, o código e a infraestrutura, independentemente de futuras contratações ou alterações de parceiros tecnológicos.</div>
+  </div>
+
+  <div id="b20" class="bullet-section reveal">
+    <div class="b-num">20</div>
+    <div class="b-title">A maturidade em gestão de dados passa do nível 1 para o nível 3 em doze meses.</div>
+    <div class="b-body">O IPPUC parte do nível 1–2 de maturidade DMBOK, informal e reativo, em todas as doze dimensões. Em doze meses, o URBI.A. eleva todas as dimensões ao nível 3, definido e gerenciado. Em trinta e seis meses, as dimensões-chave alcançam os níveis 4–5, mensurável e otimizado (DAMA International, 2017). Esse percurso posiciona Curitiba entre as capitais brasileiras com maior maturidade institucional em governança de dados urbanos.</div>
+    <a href="diagnostico.html" class="card" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver diagnóstico de maturidade →</a>
+  </div>
+
+  <!-- GRUPO 3 -->
+  <div class="group-header">
+    <span class="g-tag">Bullets 21–26</span>
+    <h3>Indicadores, participação cidadã e redes sociais</h3>
+  </div>
+
+  <div id="b21" class="bullet-section reveal">
+    <div class="b-num">21</div>
+    <div class="b-title">Oitenta e três por cento dos indicadores dependem de extração automatizada de portais, e isso é gerido com transparência.</div>
+    <div class="b-body">O levantamento das 125 fontes de dados revelou que apenas 18 indicadores (14,4%) dispõem de API oficial estável. Os demais 104 (83,2%) dependem de webscraping, extração automatizada de portais públicos. O URBI.A. assume essa realidade: cada dashboard exibe a data da última atualização bem-sucedida, alertas automáticos são disparados quando uma fonte falha e o histórico protegido garante que o usuário nunca visualize dado incorreto. A meta é elevar a proporção de APIs para 40% até 2027.</div>
+    <a href="indicadores.html" class="card" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver radiografia completa dos indicadores →</a>
+  </div>
+
+  <div id="b22" class="bullet-section reveal">
+    <div class="b-num">22</div>
+    <div class="b-title">O Dashboard de Habitação é o mais vulnerável: cem por cento dos seus vinte e seis indicadores dependem de extração automatizada.</div>
+    <div class="b-body">Nenhum dos 26 indicadores de Habitação e Regularização Fundiária dispõe de API oficial. Todos dependem de portais de COHAB-CT, FJP e CadÚnico. O URBI.A. implementa alertas automáticos e cache histórico para garantir resiliência operacional, enquanto o IPPUC iniciará diálogo formal com essas instituições para priorização de interfaces de dados estruturadas.</div>
+  </div>
+
+  <div id="b23" class="bullet-section reveal">
+    <div class="b-num">23</div>
+    <div class="b-title">O Dashboard de Mobilidade apresenta a melhor estrutura: vinte e oito por cento dos indicadores já acessíveis via API.</div>
+    <div class="b-body">Com oito indicadores disponíveis via API do GeoCuritiba, IBGE e TemBici, o painel de Mobilidade é o mais resiliente do conjunto. Esses oito indicadores garantem que o dashboard principal do Plano Diretor nunca fique integralmente desatualizado, mesmo em cenários de falha prolongada de fontes de webscraping.</div>
+  </div>
+
+  <div id="b24" class="bullet-section reveal">
+    <div class="b-num">24</div>
+    <div class="b-title">O cidadão acessa a plataforma pública com um único clique, sem cadastro adicional.</div>
+    <div class="b-body">A camada pública do URBI.A. elimina a barreira do cadastro mediante autenticação via Google, Gov.br, Facebook/Instagram e Apple, todos sob o protocolo OAuth 2.0, com consentimento explícito e base legal LGPD documentada. O cidadão que registrou uma condição urbana inadequada em uma avaliação do Google Maps pode, com um único clique, transformar esse relato em dado oficial do monitoramento do Plano Diretor.</div>
+    <a href="participacao.html#login" class="card" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver autenticação social e participação cidadã →</a>
+  </div>
+
+  <div id="b25" class="bullet-section reveal">
+    <div class="b-num">25</div>
+    <div class="b-title">A gamificação transforma o monitoramento urbano em missão cívica coletiva.</div>
+    <div class="b-body">O portal público do URBI.A. implementa um sistema de progressão com quatro níveis: Observador, Colaborador, Guardião da Cidade e Embaixador do Plano Diretor. Uma fotografia geo-referenciada de barreira na calçada corresponde a 50 pontos; a participação em consulta pública, a 200. Cidadãos que acumulem 500 pontos em um ano recebem Certificado de Contribuinte do Plano Diretor emitido pelo IPPUC.</div>
+    <a href="participacao.html#gamificacao" class="card" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver sistema de gamificação →</a>
+  </div>
+
+  <div id="b26" class="bullet-section reveal">
+    <div class="b-num">26</div>
+    <div class="b-title">Avaliações em redes sociais e no Google Maps tornam-se dado qualificado do Plano Diretor, sempre com consentimento.</div>
+    <div class="b-body">O cidadão que avaliou um parque no Google Maps, documentou uma ciclovia interrompida no Instagram ou relatou um alagamento no Twitter pode, voluntariamente, vincular essa contribuição ao indicador correspondente no URBI.A. A integração é sempre de iniciativa do usuário; o sistema nunca extrai dados de redes sociais sem ação explícita. A moderação combina processamento automatizado pela API Google Perspective com revisão humana de segunda instância por analista do IPPUC.</div>
+    <a href="participacao.html#redes" class="card" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:8px 16px;font-size:.8rem;font-weight:600;color:var(--blue-xl);text-decoration:none;border-color:var(--line2)">Ver integração com redes sociais →</a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <span>URBI.A. · Sistema Corporativo de Dados e Inteligência Organizacional</span>
+  <a href="downloads.html">↓ Baixar documentos completos</a>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
