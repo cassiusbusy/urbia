@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico de Maturidade — URBI.A. · IPPUC</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.maturity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+.mat-item {
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 14px 16px;
+}
+.mat-dim { font-size: .82rem; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.mat-levels { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+.mat-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--line2);
+}
+.mat-dot.lit { background: var(--blue-l); }
+.mat-dot.target { background: var(--green-l); }
+.mat-legend { font-size: .72rem; color: var(--text-dim); }
+.mat-gap {
+  font-size: .78rem; color: var(--text-muted); margin-top: 4px; line-height: 1.4;
+  border-top: 1px solid var(--line); padding-top: 6px;
+}
+.scenario-table td:first-child { font-weight: 600; color: var(--white); width: 180px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">URBI<span>.A.</span><small>IPPUC · Curitiba</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="resumo-executivo.html">Resumo</a></li>
+    <li><a href="contextualizacao.html">Contexto</a></li>
+    <li><a href="diagnostico.html" class="active">Diagnóstico</a></li>
+    <li><a href="metodologia.html">Metodologia</a></li>
+    <li><a href="implementacao.html">Implementação</a></li>
+    <li><a href="indicadores.html">Indicadores</a></li>
+    <li><a href="participacao.html">Participação</a></li>
+  </ul>
+  <a href="downloads.html" class="nav-dl">↓ Downloads</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Capítulo III · Gerências e Coordenações</div>
+    <h1>Diagnóstico de <em>Maturidade</em></h1>
+    <p class="hero-sub">Onde o IPPUC está hoje nas 12 dimensões DMBOK, o que isso custa operacionalmente e o percurso de evolução em 36 meses.</p>
+  </div>
+</div>
+
+<main class="page">
+
+  <!-- CUSTO DA INAÇÃO -->
+  <section style="margin-bottom:52px">
+    <div class="sec-label">O que custa caro todos os dias</div>
+    <h2 class="sec-title">O diagnóstico em três camadas de risco</h2>
+    <div class="g3 reveal" style="margin-top:24px">
+      <div class="card">
+        <div class="card-icon">⚠️</div>
+        <h3>Fragilidade técnica</h3>
+        <p>83,2% dos 125 indicadores dependem de webscraping. Qualquer alteração nos portais de COHAB-CT, FJP, DATASUS ou SANEPAR pode interromper silenciosamente a atualização dos dados, sem alerta ao gestor.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚖️</div>
+        <h3>Passivo jurídico real</h3>
+        <p>Dados do CadÚnico e do DATASUS são utilizados sem base legal documentada para todos os fluxos, contrariando o art. 7.º da Lei n.º 13.709/2018. A ausência de controle de acesso e auditoria expõe o IPPUC à ANPD.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🕒</div>
+        <h3>Custo operacional invisível</h3>
+        <p>Analistas dedicam horas mensais à consolidação manual de dados. Relatórios chegam às reuniões com semanas de defasagem e métricas divergentes entre o IPPUC e secretarias parceiras.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- MATURIDADE DMBOK -->
+  <section style="margin-bottom:52px">
+    <div class="sec-label reveal">Framework DAMA-DMBOK 2017</div>
+    <h2 class="sec-title reveal">Maturidade atual por dimensão</h2>
+    <p class="prose reveal" style="max-width:680px;margin-bottom:24px">O IPPUC opera no nível 1–2 de maturidade DMBOK — informal e reativo — em todas as doze dimensões. Não é um julgamento sobre a equipe: é o diagnóstico de uma organização que nunca precisou de infraestrutura formal de dados para cumprir sua missão. O que muda em 2025 é a complexidade dos desafios, que torna essa infraestrutura necessária.</p>
+
+    <div class="callout gold reveal">
+      <strong>Escala de maturidade DMBOK</strong>
+      <p>Nível 1 — Informal/Inexistente &nbsp;·&nbsp; Nível 2 — Reativo &nbsp;·&nbsp; Nível 3 — Definido e Gerenciado &nbsp;·&nbsp; Nível 4 — Mensurável &nbsp;·&nbsp; Nível 5 — Otimizado</p>
+    </div>
+
+    <div class="maturity-grid reveal">
+      <!-- Each item: dim name, current level (1-5 dots lit), target 12m, gap description -->
+      <script>
+      const DIMS = [
+        {d:'Governança de Dados', cur:1, t12:3, gap:'Ausência de comitê, políticas e responsáveis formais — toda gestão é informal'},
+        {d:'Metadados', cur:1, t12:3, gap:'Maior risco operacional: sem catálogo, IA é imprecisa e LGPD é passivo jurídico'},
+        {d:'Segurança de Dados', cur:1, t12:3, gap:'Dados CadÚnico e DATASUS tratados sem base legal documentada para todos os fluxos'},
+        {d:'Integração e Interoperabilidade', cur:1, t12:3, gap:'Dados trocados por e-mail e planilhas — sem pipelines automáticos ou rastreabilidade'},
+        {d:'Qualidade de Dados', cur:2, t12:3, gap:'Métricas divergem entre relatórios — ausência de Única Versão da Verdade'},
+        {d:'Arquitetura de Dados', cur:1, t12:3, gap:'Sem blueprint técnico integrado à estratégia institucional'},
+        {d:'Modelagem e Desenho', cur:2, t12:3, gap:'Modelos existem, mas sem padrão unificado entre áreas e fontes'},
+        {d:'Armazenamento e Operações', cur:2, t12:3, gap:'BDs existentes sem SLA formal, sem monitoramento automatizado'},
+        {d:'Data Warehousing e BI', cur:1, t12:2, gap:'Dashboards isolados, sem DW central e sem histórico consolidado'},
+        {d:'Dados Mestre (MDM)', cur:1, t12:2, gap:'Macrozonas com versões divergentes entre diferentes documentos'},
+        {d:'Gestão de Documentos', cur:1, t12:2, gap:'Metodologias dos indicadores não publicadas ou acessíveis publicamente'},
+        {d:'Big Data e Analytics', cur:1, t12:2, gap:'Nenhuma iniciativa de ML ou analytics preditivo em operação'},
+      ];
+      document.addEventListener('DOMContentLoaded', () => {
+        const grid = document.getElementById('mat-grid');
+        DIMS.forEach(d => {
+          const dots = Array.from({length:5}, (_,i) => {
+            const cls = i < d.cur ? 'mat-dot lit' : i < d.t12 ? 'mat-dot target' : 'mat-dot';
+            return `<div class="${cls}" title="Nível ${i+1}"></div>`;
+          }).join('');
+          grid.innerHTML += `<div class="mat-item">
+            <div class="mat-dim">${d.d}</div>
+            <div class="mat-levels">${dots}</div>
+            <div class="mat-legend"><span style="color:var(--blue-xl)">●</span> Atual (Nível ${d.cur}) &nbsp; <span style="color:var(--green-l)">●</span> Meta 12m (Nível ${d.t12})</div>
+            <div class="mat-gap">${d.gap}</div>
+          </div>`;
+        });
+      });
+      </script>
+    </div>
+    <div class="maturity-grid" id="mat-grid"></div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- CENÁRIO PRÁTICO -->
+  <section style="margin-bottom:52px">
+    <div class="sec-label reveal">Cenário de referência</div>
+    <h2 class="sec-title reveal">Do dado bruto à decisão qualificada</h2>
+    <div class="callout reveal" style="margin-bottom:20px">
+      <strong>Situação</strong>
+      <p>Um gestor da área de habitação precisa responder, em reunião com o Conselho da Cidade, se o déficit habitacional na Regional Tatuquara piorou nos últimos três anos e quais macrozonas devem ser priorizadas no próximo programa habitacional.</p>
+    </div>
+    <div class="tbl-wrap reveal">
+      <table class="scenario-table">
+        <thead><tr><th>Cenário</th><th>Processo e resultado</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Sem o URBI.A. (hoje)</td>
+            <td>Analista solicita dados ao COHAB-CT e aguarda duas semanas. Cruza manualmente com CadÚnico via planilha: mais três dias. Metodologia FJP diverge do IBGE, gerando debate interno de mais uma semana. Resultado: relatório de seis semanas de atraso, número contestável, sem rastreabilidade da fonte.</td>
+          </tr>
+          <tr>
+            <td>Com o URBI.A. (a partir da 2ª quinzena)</td>
+            <td>Gestor acessa o Dashboard de Habitação, seleciona a Regional Tatuquara e visualiza a série histórica integrada de COHAB-CT, FJP e CadÚnico. Identifica a concentração na Faixa 1 do MCMV, exporta o relatório com metodologia e fonte rastreáveis e apresenta no Conselho da Cidade. <strong style="color:var(--green-l)">Tempo total: cinco minutos.</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- DADOS DE CURITIBA -->
+  <section class="reveal">
+    <div class="sec-label">Diagnóstico G11 — IPPUC, 2024</div>
+    <h2 class="sec-title">Os contrastes que o URBI.A. deve monitorar</h2>
+    <div class="g3" style="margin-top:24px">
+      <div class="stat-block"><div class="stat-num">R$ 49.907</div><div class="stat-label">PIB per capita (2021). Crescimento não homogêneo pelo território</div></div>
+      <div class="stat-block"><div class="stat-num accent">0,55</div><div class="stat-label">Índice de Gini (RMC, 2010) — entre os mais elevados do Sul do Brasil</div></div>
+      <div class="stat-block"><div class="stat-num">42.708</div><div class="stat-label">Unidades de déficit habitacional. 68% na Faixa 1 MCMV (FJP, 2023)</div></div>
+      <div class="stat-block"><div class="stat-num">7%</div><div class="stat-label">Da população em núcleos informais — invisíveis nos sistemas municipais</div></div>
+      <div class="stat-block"><div class="stat-num accent">4</div><div class="stat-label">Regionais com déficit qualitativo de equipamentos âncora (ISAEU)</div></div>
+      <div class="stat-block"><div class="stat-num">2030</div><div class="stat-label">Próxima revisão do PD — só será qualificada com 5 anos de histórico estruturado</div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>URBI.A. · IPPUC · Curitiba · 2025</span>
+  <a href="downloads.html">↓ Baixar documentos completos</a>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
