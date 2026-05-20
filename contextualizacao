@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contextualização Estratégica — URBI.A. · IPPUC</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.archimate-chain {
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+  overflow: hidden;
+  margin: 24px 0;
+}
+.archimate-header {
+  background: var(--blue);
+  padding: 12px 20px;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.archimate-header.green { background: var(--green); }
+.archimate-header.amber { background: var(--amber); }
+.archimate-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  border-bottom: 1px solid var(--line);
+}
+.archimate-row:last-child { border-bottom: none; }
+.archimate-label {
+  padding: 12px 16px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--blue-xl);
+  background: rgba(30,90,158,.08);
+  border-right: 1px solid var(--line);
+  display: flex; align-items: flex-start;
+  line-height: 1.4;
+}
+.archimate-label.green { color: var(--green-l); background: rgba(42,122,82,.08); }
+.archimate-label.amber { color: #e8a060; background: rgba(200,118,42,.08); }
+.archimate-value {
+  padding: 12px 16px;
+  font-size: .86rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+.protection-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+@media(max-width:700px){ .protection-grid { grid-template-columns:1fr; } }
+.prot-card {
+  background: var(--ink3);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 18px;
+}
+.prot-num {
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  color: var(--gold);
+  letter-spacing: .1em;
+  margin-bottom: 8px;
+}
+.prot-title { font-size: .9rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+.prot-body { font-size: .82rem; color: var(--text-muted); line-height: 1.55; }
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+@media(max-width:600px){ .mission-grid { grid-template-columns:1fr; } }
+.mission-item {
+  background: var(--ink3);
+  border-left: 3px solid var(--blue-l);
+  padding: 14px 16px;
+  border-radius: 0 var(--r) var(--r) 0;
+}
+.mission-item.gold { border-left-color: var(--gold); }
+.mission-key { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-dim); margin-bottom: 5px; }
+.mission-val { font-size: .88rem; color: var(--text); line-height: 1.55; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">URBI<span>.A.</span><small>IPPUC · Curitiba</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="resumo-executivo.html">Resumo</a></li>
+    <li><a href="contextualizacao.html" class="active">Contexto</a></li>
+    <li><a href="diagnostico.html">Diagnóstico</a></li>
+    <li><a href="metodologia.html">Metodologia</a></li>
+    <li><a href="implementacao.html">Implementação</a></li>
+    <li><a href="indicadores.html">Indicadores</a></li>
+    <li><a href="participacao.html">Participação</a></li>
+  </ul>
+  <a href="downloads.html" class="nav-dl">↓ Downloads</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Capítulo II · Diretorias e Gerências</div>
+    <h1>Contextualização <em>Estratégica</em></h1>
+    <p class="hero-sub">Do cidadão ao dado: como o IPPUC fundamenta o URBI.A. na missão institucional e na cadeia de motivação ArchiMate.</p>
+  </div>
+</div>
+
+<main class="page">
+
+  <!-- MISSÃO -->
+  <section style="margin-bottom:52px">
+    <div class="sec-label">Âncora institucional</div>
+    <h2 class="sec-title">O IPPUC e o Plano Diretor</h2>
+    <div class="prose">
+      <p>Fundado em 1965, o IPPUC é a autarquia municipal responsável por orientar a implantação do Plano Diretor de Curitiba, o instrumento jurídico de ordenamento do território municipal. Ao longo de seis décadas, o Instituto desenvolveu uma visão sistêmica que distinguiu Curitiba no cenário do planejamento urbano internacional: a compreensão de que os problemas da cidade são interconectados e que as soluções precisam sê-lo também.</p>
+      <p>Um parque urbano, nessa perspectiva, é simultaneamente um equipamento de macrodrenagem, uma reserva de biodiversidade, um equipamento de lazer e um indutor de mobilidade ativa. O URBI.A. nasce dessa mesma lógica sistêmica: não um painel por secretaria, mas uma visão integrada dos 125 indicadores que compõem o Plano Diretor.</p>
+    </div>
+    <div class="mission-grid reveal">
+      <div class="mission-item">
+        <div class="mission-key">Missão</div>
+        <div class="mission-val">Orientar a implantação do Plano Diretor e prover soluções urbanas sistêmicas que melhorem a qualidade de vida dos habitantes de Curitiba</div>
+      </div>
+      <div class="mission-item gold">
+        <div class="mission-key">Visão</div>
+        <div class="mission-val">Construir a cidade do futuro com ações no presente, garantindo sustentabilidade urbana, social e ambiental para as gerações vindouras</div>
+      </div>
+      <div class="mission-item">
+        <div class="mission-key">Valores</div>
+        <div class="mission-val">Integração multidisciplinar · Inovação · Participação social · Comprometimento · Transparência pública</div>
+      </div>
+      <div class="mission-item gold">
+        <div class="mission-key">Desafio 2025</div>
+        <div class="mission-val">Revisão do Plano Diretor e reformulação da concessão de transporte — ambos requerem dados integrados, atualizados e auditáveis sobre 125 indicadores</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- ARCHIMATE -->
+  <section style="margin-bottom:52px">
+    <div class="sec-label reveal">Camada de motivação ArchiMate (The Open Group, 2019)</div>
+    <h2 class="sec-title reveal">Do cidadão ao serviço de dados: três cadeias reais</h2>
+    <p class="prose reveal" style="max-width:700px;margin-bottom:28px">
+      A metodologia ArchiMate prevê uma camada de motivação que conecta as necessidades dos stakeholders às decisões de arquitetura, por meio da cadeia: Stakeholder → Driver → Objetivo → Requisito → Serviço → Impacto. As três cadeias a seguir são contextos reais de Curitiba — não exemplos genéricos.
+    </p>
+
+    <!-- Cadeia 1 -->
+    <div class="archimate-chain reveal">
+      <div class="archimate-header">Cadeia 1 — Mobilidade e qualidade de vida</div>
+      <div class="archimate-row">
+        <div class="archimate-label">Stakeholder</div>
+        <div class="archimate-value">Trabalhador que utiliza o transporte coletivo e reside nas regiões periféricas de Curitiba</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label">Driver</div>
+        <div class="archimate-value">Tempo médio de deslocamento casa-trabalho superior a 60 minutos nas regiões de Tatuquara, Bairro Novo e Fazendinha, conforme diagnóstico G11 (IPPUC, 2024)</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label">Objetivo do PD</div>
+        <div class="archimate-value">Redução de 15% no tempo médio de deslocamento nas regionais com maior déficit de acessibilidade até 2030</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label">Requisito</div>
+        <div class="archimate-value">Monitoramento quinzenal do IPK (Índice de Passageiros por Quilômetro), da velocidade comercial e da cobertura de linha por regional</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label">Serviço URBI.A.</div>
+        <div class="archimate-value">Dashboard de Mobilidade com 22 indicadores integrados — URBS, GeoCuritiba, DETRAN — entregue na primeira quinzena</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label">Impacto</div>
+        <div class="archimate-value">O gestor de transporte passa a antecipar quedas de eficiência antes que afetem o usuário, em vez de reagir após a crise instalada</div>
+      </div>
+    </div>
+
+    <!-- Cadeia 2 -->
+    <div class="archimate-chain reveal">
+      <div class="archimate-header green">Cadeia 2 — Habitação e redução da desigualdade</div>
+      <div class="archimate-row">
+        <div class="archimate-label green">Stakeholder</div>
+        <div class="archimate-value">Família em situação de vulnerabilidade habitacional — 42.708 unidades de déficit municipal, das quais 68% concentradas na Faixa 1 do MCMV (FJP, 2023)</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label green">Driver</div>
+        <div class="archimate-value">Risco de perda de moradia, adensamento precário em núcleos informais — 7% da população de Curitiba — e invisibilidade dessas famílias nos sistemas municipais de planejamento</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label green">Objetivo do PD</div>
+        <div class="archimate-value">Redução de 20% no déficit habitacional absoluto até 2030, com priorização das macrozonas de maior concentração de vulnerabilidade socioeconômica</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label green">Requisito</div>
+        <div class="archimate-value">Cruzamento de dados do COHAB-CT, FJP e CadÚnico por setor censitário, com atualização semestral e metodologia auditável</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label green">Serviço URBI.A.</div>
+        <div class="archimate-value">Dashboard de Habitação com 26 indicadores integrados — entregue na segunda quinzena, com k-anonimato aplicado aos microdados do CadÚnico</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label green">Impacto</div>
+        <div class="archimate-value">A priorização de programas habitacionais passa a ser fundamentada em dados verificáveis, demonstrável perante o Conselho da Cidade</div>
+      </div>
+    </div>
+
+    <!-- Cadeia 3 -->
+    <div class="archimate-chain reveal">
+      <div class="archimate-header amber">Cadeia 3 — Meio ambiente e resiliência climática</div>
+      <div class="archimate-row">
+        <div class="archimate-label amber">Stakeholder</div>
+        <div class="archimate-value">Cidadão residente em área de risco hidrológico ou geológico, especialmente próximo a fundos de vale urbanos</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label amber">Driver</div>
+        <div class="archimate-value">Frequência crescente de eventos extremos de chuva, deslizamento e inundação, agravada pelo adensamento urbano sem planejamento adequado de drenagem</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label amber">Objetivo do PD</div>
+        <div class="archimate-value">Redução de 25% no número de famílias em áreas de risco geológico e hidrológico até 2030, com intervenção prioritária nas áreas identificadas pelo ISAEU</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label amber">Requisito</div>
+        <div class="archimate-value">Integração de dados do SANEPAR (ICA, IPL), da SMMA (cobertura vegetal, UCs), do SISDC (eventos registrados) e do IPPUC (áreas impermeáveis), com atualização mensal</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label amber">Serviço URBI.A.</div>
+        <div class="archimate-value">Dashboards Ambiental e de Defesa Civil com 34 indicadores — entregues nas quinzenas Q5 e Q6, com perfil de acesso restrito para dados operacionais críticos</div>
+      </div>
+      <div class="archimate-row">
+        <div class="archimate-label amber">Impacto</div>
+        <div class="archimate-value">A Defesa Civil monitora indicadores antecedentes — precipitação acumulada, nível dos rios, saturação do solo — e aciona alertas preventivos antes da ocorrência do evento</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- PROTEÇÃO POLÍTICA -->
+  <section class="reveal">
+    <div class="sec-label">Consequência institucional</div>
+    <h2 class="sec-title">Por que a cadeia de motivação protege o projeto politicamente</h2>
+    <p class="prose" style="max-width:700px;margin-bottom:24px">A explicitação da cadeia ArchiMate transforma o URBI.A. de projeto de tecnologia da informação em instrumento de cumprimento do Plano Diretor. Três consequências práticas:</p>
+    <div class="protection-grid">
+      <div class="prot-card">
+        <div class="prot-num">01</div>
+        <div class="prot-title">Resistência a descontinuidades de gestão</div>
+        <div class="prot-body">Nenhuma administração futura descontinua, sem justificativa legal, um sistema vinculado ao monitoramento do instrumento máximo de ordenamento municipal.</div>
+      </div>
+      <div class="prot-card">
+        <div class="prot-num">02</div>
+        <div class="prot-title">Legitimidade perante o Conselho da Cidade</div>
+        <div class="prot-body">O Concitiba e os conselhos temáticos têm base legal para exigir acesso aos dados do Plano Diretor. O URBI.A. cria o canal oficial para essa prestação de contas.</div>
+      </div>
+      <div class="prot-card">
+        <div class="prot-num">03</div>
+        <div class="prot-title">Ancoragem orçamentária</div>
+        <div class="prot-body">Quando o sistema é vinculado a metas do PD com prazo e percentual definidos, o orçamento deixa de ser custo discricionário e passa a ser investimento associado a obrigação legal.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>URBI.A. · IPPUC · Curitiba · 2025</span>
+  <a href="downloads.html">↓ Baixar documentos completos</a>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
