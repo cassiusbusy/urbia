@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Indicadores — URBI.A. · IPPUC</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.ind-bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 80px 90px 90px 50px;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ind-bar-row.header {
+  font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--text-dim); border-bottom:2px solid var(--line2); padding-bottom:8px;
+}
+.ind-dash { font-size:.85rem; font-weight:600; color:var(--white); }
+.bar-wrap { height:8px; background:rgba(255,255,255,.06); border-radius:4px; overflow:hidden; display:flex; }
+.bar-api { background:var(--blue-l); height:100%; }
+.bar-sc  { background:var(--amber); height:100%; }
+.bar-out { background:var(--text-dim); height:100%; }
+.val-api  { font-size:.78rem; font-weight:600; color:var(--blue-xl); text-align:right; }
+.val-sc   { font-size:.78rem; font-weight:600; color:#e8a060; text-align:right; }
+.val-tot  { font-size:.78rem; font-weight:600; color:var(--white); text-align:right; }
+.ind-bar-row.total-row { background:rgba(30,90,158,.1); border-radius:var(--r); padding:10px 8px; border:1px solid var(--blue); }
+.api-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+  gap: 8px;
+  margin-top:16px;
+}
+.api-item {
+  background:var(--ink3);
+  border:1px solid var(--line);
+  border-left:3px solid var(--blue-l);
+  border-radius:0 var(--r) var(--r) 0;
+  padding:10px 14px;
+}
+.api-dash { font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--blue-xl); margin-bottom:4px; }
+.api-name { font-size:.85rem; color:var(--white); font-weight:500; margin-bottom:2px; line-height:1.35; }
+.api-src  { font-size:.75rem; color:var(--text-muted); }
+.resilience-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:20px;
+}
+@media(max-width:700px){ .resilience-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">URBI<span>.A.</span><small>IPPUC · Curitiba</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="resumo-executivo.html">Resumo</a></li>
+    <li><a href="contextualizacao.html">Contexto</a></li>
+    <li><a href="diagnostico.html">Diagnóstico</a></li>
+    <li><a href="metodologia.html">Metodologia</a></li>
+    <li><a href="implementacao.html">Implementação</a></li>
+    <li><a href="indicadores.html" class="active">Indicadores</a></li>
+    <li><a href="participacao.html">Participação</a></li>
+  </ul>
+  <a href="downloads.html" class="nav-dl">↓ Downloads</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Capítulo VI · Radiografia das fontes de dados</div>
+    <h1><em>125 Indicadores</em><br>do Plano Diretor</h1>
+    <p class="hero-sub">API vs. webscraping por dashboard: o diagnóstico honesto da fragilidade técnica e a estratégia de resiliência do URBI.A.</p>
+    <div class="hero-stats" style="margin-top:28px">
+      <div class="hs"><div class="hs-num" style="color:var(--blue-xl)">18</div><div class="hs-lbl">Via API<br>(14,4%)</div></div>
+      <div class="hs"><div class="hs-num" style="color:#e8a060">104</div><div class="hs-lbl">Via webscraping<br>(83,2%)</div></div>
+      <div class="hs"><div class="hs-num" style="color:var(--text-dim)">3</div><div class="hs-lbl">Outros meios<br>(2,4%)</div></div>
+      <div class="hs"><div class="hs-num">125</div><div class="hs-lbl">Total de indicadores<br>monitorados</div></div>
+    </div>
+  </div>
+</div>
+
+<main class="page">
+
+  <div class="callout" style="margin-bottom:32px">
+    <strong>O dado mais crítico do levantamento</strong>
+    <p>83,2% dos 125 indicadores do Plano Diretor de Curitiba não possuem API oficial. Dependem de webscraping — extração automatizada de portais públicos que pode ser interrompida por mudanças nos sites de origem. O URBI.A. assume essa realidade com transparência e implementa três camadas de resiliência.</p>
+  </div>
+
+  <!-- BARCHART POR DASHBOARD -->
+  <section style="margin-bottom:52px">
+    <div class="sec-label reveal">Distribuição por dashboard</div>
+    <h2 class="sec-title reveal">API vs. webscraping vs. outros meios</h2>
+    <div style="margin-top:20px" class="reveal">
+      <div class="ind-bar-row header">
+        <div>Dashboard</div><div>Distribuição</div>
+        <div style="text-align:right">API</div>
+        <div style="text-align:right">Scraping</div>
+        <div style="text-align:right">Outros</div>
+        <div style="text-align:right">Total</div>
+      </div>
+      <div id="bar-rows"></div>
+    </div>
+    <div style="display:flex;gap:20px;margin-top:14px;font-size:.78rem;color:var(--text-muted)">
+      <span><span style="color:var(--blue-xl)">■</span> Via API</span>
+      <span><span style="color:#e8a060">■</span> Via webscraping</span>
+      <span><span style="color:var(--text-dim)">■</span> Outros meios</span>
+    </div>
+  </section>
+
+  <div id="mobilidade" class="div reveal"></div>
+
+  <!-- OS 18 COM API -->
+  <section style="margin-bottom:52px">
+    <div class="sec-label reveal">Âncora de resiliência</div>
+    <h2 class="sec-title reveal">Os 18 indicadores com API oficial</h2>
+    <p class="prose reveal" style="max-width:680px;margin-bottom:20px">Estes 18 indicadores têm acesso estruturado via API oficial, garantindo maior estabilidade, rastreabilidade e atualização automatizada com menor risco de ruptura.</p>
+    <div class="api-list reveal" id="api-list"></div>
+  </section>
+
+  <div id="habitacao" class="div reveal"></div>
+
+  <!-- RESILIÊNCIA -->
+  <section style="margin-bottom:52px">
+    <div class="sec-label reveal">Estratégia de resiliência</div>
+    <h2 class="sec-title reveal">Como o URBI.A. mitiga a dependência de webscraping</h2>
+    <div class="resilience-grid reveal">
+      <div class="card">
+        <div class="card-icon">🔔</div>
+        <h3>Camada 1 — Alertas automáticos</h3>
+        <p>Cada pipeline de webscraping possui monitoramento ativo. Se o portal de origem alterar sua estrutura ou ficar offline, um alerta é disparado imediatamente para o Data Steward responsável. O usuário vê o dado com o carimbo "atualizado em [data]" — nunca dado incorreto.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🗄️</div>
+        <h3>Camada 2 — Cache histórico protegido</h3>
+        <p>O Data Warehouse mantém o último valor válido de cada indicador mesmo quando a fonte falha. Dashboards exibem o dado mais recente disponível com transparência sobre a data da última atualização bem-sucedida.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📢</div>
+        <h3>Camada 3 — Advocacia por APIs oficiais</h3>
+        <p>O IPPUC utilizará o URBI.A. como instrumento de diálogo junto a DATASUS, SESP, SANEPAR e URBS. A meta é elevar de 14,4% para 40% a proporção de indicadores via API até 2027.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="div reveal"></div>
+
+  <!-- ROADMAP -->
+  <section class="reveal">
+    <div class="sec-label">Roadmap de evolução da infraestrutura</div>
+    <h2 class="sec-title">Da fragilidade à resiliência (2025–2027)</h2>
+    <div class="tbl-wrap" style="margin-top:20px">
+      <table>
+        <thead><tr><th>Período</th><th>Via API</th><th>Via scraping</th><th>Outros</th><th>% via API</th><th>Marco principal</th></tr></thead>
+        <tbody>
+          <tr><td>2025 (Ano 1)</td><td>18 indicadores</td><td>104 indicadores</td><td>3 indicadores</td><td><span class="tag tag-amber">14,4%</span></td><td>Baseline estabelecido</td></tr>
+          <tr><td>2026 (Ano 2)</td><td>35–40 indicadores</td><td>83–88 indicadores</td><td>2 indicadores</td><td><span class="tag tag-blue">28–32%</span></td><td>Conversão: IBGE + IPPUC internas + INEP expandido</td></tr>
+          <tr><td>2027 (Ano 3)</td><td>50+ indicadores</td><td>73 indicadores</td><td>1 indicador</td><td><span class="tag tag-green">40%+</span></td><td>Negociação com DATASUS, SESP e SANEPAR</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.8rem;color:var(--text-dim);margin-top:10px">Fonte: levantamento próprio sobre as 125 fontes dos indicadores do Plano Diretor de Curitiba, 2024.</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>URBI.A. · IPPUC · Curitiba · 2025</span>
+  <a href="downloads.html">↓ Baixar planilha completa de indicadores</a>
+</footer>
+<script src="shared.js"></script>
+<script>
+const DASH = [
+  {label:'Mobilidade e Transporte',    api:8,  sc:18, out:3, tot:29},
+  {label:'Desenvolvimento Social',      api:3,  sc:26, out:0, tot:29},
+  {label:'Habitação e Reg. Fundiária',  api:0,  sc:26, out:0, tot:26},
+  {label:'Desenvolvimento Ambiental',   api:4,  sc:15, out:0, tot:19},
+  {label:'Desenvolvimento Econômico',   api:2,  sc:11, out:0, tot:13},
+  {label:'Defesa Civil',                api:1,  sc:8,  out:0, tot:9},
+  {label:'Defesa Social / Segurança',   api:0,  sc:8,  out:0, tot:8},
+  {label:'TOTAL GERAL',                 api:18, sc:104,out:3, tot:125, total:true},
+];
+const API_IND = [
+  {dash:'Mobilidade',   name:'Domicílios com calçadas no entorno',               src:'IBGE (Censo) · servicodados.ibge.gov.br'},
+  {dash:'Mobilidade',   name:'Domicílios com rebaixamentos de calçada',           src:'IBGE (Censo) · servicodados.ibge.gov.br'},
+  {dash:'Mobilidade',   name:'Cobertura cicloviária da malha viária',             src:'IPPUC · API GeoCuritiba'},
+  {dash:'Mobilidade',   name:'Índice de viagens em bicicletas compartilhadas',    src:'TemBici + IBGE · API TemBici'},
+  {dash:'Mobilidade',   name:'Percentual de pistas pavimentadas',                 src:'IPPUC · API GeoCuritiba'},
+  {dash:'Mobilidade',   name:'Cobertura territorial do transporte público',       src:'IPPUC · API GeoCuritiba'},
+  {dash:'Mobilidade',   name:'Cobertura populacional do transporte público',      src:'IPPUC + IBGE · API GeoCuritiba'},
+  {dash:'Mobilidade',   name:'Índice de prioridade viária ao transporte público', src:'IPPUC + URBS + SETRAN · API GeoCuritiba'},
+  {dash:'Econômico',    name:'Taxa de variação (real) do PIB',                    src:'IBGE + IPEA · api.ipeadata.gov.br'},
+  {dash:'Econômico',    name:'PIB per capita',                                    src:'IBGE · servicodados.ibge.gov.br'},
+  {dash:'Social',       name:'IDEB Ensino Fundamental — Anos Iniciais',           src:'INEP · api.inep.gov.br'},
+  {dash:'Social',       name:'IDEB Ensino Fundamental — Anos Finais',             src:'INEP · api.inep.gov.br'},
+  {dash:'Social',       name:'IDEB Ensino Médio',                                 src:'INEP · api.inep.gov.br'},
+  {dash:'Ambiental',    name:'Acesso a áreas de biodiversidade',                  src:'IPPUC + SMMA · API GeoCuritiba'},
+  {dash:'Ambiental',    name:'Acesso a áreas verdes de lazer públicas',           src:'IPPUC + SMMA · API GeoCuritiba'},
+  {dash:'Ambiental',    name:'Taxa de Unidades de Conservação Municipal',         src:'IPPUC + SMMA · API GeoCuritiba'},
+  {dash:'Ambiental',    name:'Taxa de Cobertura Vegetal',                         src:'IPPUC + SMMA · API GeoCuritiba'},
+  {dash:'Defesa Civil', name:'Cobertura de sistemas de monitoramento e alerta',   src:'SISDC + SGM + IPPUC · API GeoCuritiba'},
+];
+
+const brows = document.getElementById('bar-rows');
+DASH.forEach(d => {
+  const pApi = (d.api/d.tot*100).toFixed(0);
+  const pSc  = (d.sc /d.tot*100).toFixed(0);
+  const pOut = (d.out/d.tot*100).toFixed(0);
+  const cls  = d.total ? 'ind-bar-row total-row' : 'ind-bar-row';
+  brows.innerHTML += `<div class="${cls}">
+    <div class="ind-dash">${d.label}</div>
+    <div class="bar-wrap">
+      <div class="bar-api" style="width:${pApi}%"></div>
+      <div class="bar-sc"  style="width:${pSc}%"></div>
+      <div class="bar-out" style="width:${pOut}%"></div>
+    </div>
+    <div class="val-api">${d.api} (${pApi}%)</div>
+    <div class="val-sc">${d.sc} (${pSc}%)</div>
+    <div class="val-api" style="color:var(--text-dim)">${d.out}</div>
+    <div class="val-tot">${d.tot}</div>
+  </div>`;
+});
+
+const al = document.getElementById('api-list');
+API_IND.forEach(i => {
+  al.innerHTML += `<div class="api-item">
+    <div class="api-dash">${i.dash}</div>
+    <div class="api-name">${i.name}</div>
+    <div class="api-src">${i.src}</div>
+  </div>`;
+});
+</script>
+</body>
+</html>
