@@ -29,6 +29,7 @@
   --r:          6px;
   --r2:         10px;
   --gap:        clamp(12px, 2vw, 24px);
+  --gap-xs:     6px; /* Nova variável para espaçamentos ultra-compactos */
   --page-max:   1200px;
 
   --f-display:  'DM Serif Display', Georgia, serif;
