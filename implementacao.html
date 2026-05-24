@@ -5,122 +5,39 @@
   <title>Pirâmide Aiken Adaptada · IPPUC</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
-
-    :root {
-      --ink: #0a1118; --ink2: #111c27; --ink3: #162030;
-      --line: #1e3448; --line2: #284258;
-      --blue: #1e5a9e; --blue-l: #2e75b6; --blue-xl: #5ba3d9;
-      --gold: #c8a84b; --gold-l: #e0c97a;
-      --text: #d0dce8; --text-muted: #8ca5be; --text-dim: #4e6b82; --white: #f0f6ff;
-      --r: 6px; --r2: 10px;
-      --f-display: 'DM Serif Display', Georgia, serif;
-      --f-body: 'Inter', system-ui, sans-serif;
-      --f-mono: 'DM Mono', 'Fira Code', monospace;
-    }
+    :root { --ink: #0a1118; --ink2: #111c27; --ink3: #162030; --line: #1e3448; --blue: #1e5a9e; --blue-xl: #5ba3d9; --text: #d0dce8; --white: #f0f6ff; --gold: #c8a84b; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--f-body); background: var(--ink); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.6; }
-
-    /* ═══ SITE NAV GLOBAL ═══ */
-    .site-nav {
-      position: sticky; top: 0; z-index: 9999;
-      background: rgba(8,15,26,.97); backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-      padding: 0 24px; display: flex; align-items: stretch; justify-content: space-between;
-      height: 56px;
-    }
-    .site-nav-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; font-size: 18px; font-weight: 700; color: var(--white); }
-    .site-nav-logo .gold { color: var(--gold); }
-    .site-nav-logo small { font-family: var(--f-mono); font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-left: 6px; }
-    .site-nav-links { display: flex; align-items: stretch; list-style: none; }
-    .site-nav-links a { display: flex; align-items: center; padding: 0 16px; font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--text-muted); text-decoration: none; border-bottom: 3px solid transparent; }
-    .site-nav-links a:hover, .site-nav-links a.active { color: var(--white); border-bottom-color: var(--gold); }
-    .site-nav-dl { display: flex; align-items: center; padding: 0 16px; margin: 10px 0; font-size: 12px; font-weight: 700; color: var(--gold-l); text-decoration: none; border: 1px solid var(--gold); border-radius: 6px; }
-
-    /* ═══ HEADER LOCAL ═══ */
-    .hdr { background: var(--ink2); border-bottom: 1px solid var(--line); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: nowrap; }
-    .hdr-t { font-size: 16px; font-weight: 600; color: var(--white); }
-    .hdr-s { font-size: 11px; font-family: var(--f-mono); color: var(--text-muted); margin-top: 4px; }
-    .nav { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    
-    .btn { background: rgba(30,90,158,.2); color: var(--blue-xl); border: 1px solid rgba(46,117,182,.4); border-radius: var(--r); padding: 8px 16px; font-size: 12px; font-weight: 600; cursor: pointer; text-transform: uppercase; }
-    .btn-p { background: var(--blue); color: var(--white); border-color: var(--blue); }
-    
-    .sel { background: var(--ink3); color: var(--white); border: 1px solid var(--line2); border-radius: var(--r); padding: 8px 12px; font-size: 12px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    #jt { width: 320px !important; flex-shrink: 0; }
-    #je { width: 250px !important; flex-shrink: 0; }
-    
-    .vsep { width: 1px; height: 24px; background: var(--line); flex-shrink: 0; }
-    .pgw { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--text-muted); font-weight: 600; }
-    .pgb { width: 120px; height: 6px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; }
-    .pgf { height: 100%; background: var(--blue-xl); border-radius: 3px; transition: width .4s; }
-
-    /* ═══ STAGE & MAIN ═══ */
-    .stage { display: flex; align-items: center; gap: 16px; padding: 20px 24px 10px; }
-    .stg-n { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; }
-    .stg-h { font-size: 22px; font-weight: 600; color: var(--white); }
-    .stg-s { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-    .wrap { display: grid; grid-template-columns: 320px 320px minmax(700px, 1fr); gap: 16px; padding: 12px 24px 32px; align-items: start; overflow-x: auto; }
-    .lc, .cc, .rc { display: flex; flex-direction: column; gap: 12px; }
-    .pyr-wrap, .rad-wrap, .ibox, .bl-wrap { background: var(--ink2); border: 1px solid var(--line); border-radius: var(--r2); padding: 16px; }
-    
-    .mcw { position: relative; }
-    .mc { border-radius: var(--r2); border: 1px solid var(--line); background: var(--ink2); min-height: 150px; display: flex; flex-direction: column; cursor: pointer; }
-    .mc-h { padding: 12px 14px 10px; font-size: 15px; font-weight: 600; border-bottom: 1px solid var(--line); }
-    .mcx { display: none; position: absolute; z-index: 1000; top: 0; width: 440px; background: var(--ink2); border: 2px solid; border-radius: var(--r2); box-shadow: 0 12px 40px rgba(0,0,0,.9); pointer-events: none; }
-    .mcw:hover .mcx { display: block; }
-    
-    @keyframes fi { from { opacity: 0; } to { opacity: 1; } }
-    .ani { animation: fi .3s ease both; }
+    body { font-family: 'Inter', sans-serif; background: var(--ink); color: var(--text); min-height: 100vh; }
+    .site-nav { background: #080f1a; border-bottom: 1px solid var(--line); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 50px; }
+    .site-nav-logo { font-size: 16px; font-weight: 700; color: white; text-decoration: none; }
+    .hdr { background: var(--ink2); padding: 15px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; gap: 10px; }
+    #jt { width: 320px; padding: 8px; background: var(--ink3); color: white; border: 1px solid var(--line); border-radius: 4px; }
+    .btn { padding: 8px 16px; background: var(--blue); color: white; border: none; border-radius: 4px; cursor: pointer; }
+    .wrap { display: grid; grid-template-columns: 320px 320px 1fr; gap: 20px; padding: 20px; }
+    .lc, .cc, .rc { display: flex; flex-direction: column; gap: 15px; }
   </style>
 </head>
 <body>
-
 <nav class="site-nav">
-  <a href="index.html" class="site-nav-logo">URBI<span class="gold">.A.</span><small>IPPUC · Curitiba</small></a>
-  <ul class="site-nav-links">
-    <li><a href="index.html">Início</a></li>
-    <li><a href="implementacao.html" class="active">Implementação</a></li>
-  </ul>
-  <a href="downloads.html" class="site-nav-dl">↓ Downloads</a>
+  <a href="#" class="site-nav-logo">URBI<span style="color:var(--gold)">.A.</span></a>
+  <div style="color:var(--text-muted); font-size:12px;">Implementação DMBOK</div>
 </nav>
 
 <div class="hdr">
-  <div>
-    <div class="hdr-t">SCDIO — Implementação DMBOK / Pirâmide Aiken Adaptada</div>
-    <div class="hdr-s">20 Tarefas · 12 Dimensões DMBOK · 4 Fases Aiken</div>
-  </div>
+  <div><h2 id="stgh">Q1 — Armazenamento e Operações</h2></div>
   <div class="nav">
-    <div class="pgw"><span id="plbl">Tarefa 1/20</span><div class="pgb"><div class="pgf" id="pgf"></div></div></div>
-    <div class="vsep"></div>
-    <button class="btn" id="bprev" onclick="go(-1)">◀ Ant.</button>
-    <select class="sel" id="jt" onchange="jmp(+this.value)"></select>
-    <button class="btn btn-p" id="bnext" onclick="go(1)">Próx. ▶</button>
-    <div class="vsep"></div>
-    <select class="sel" id="je" onchange="jmpE(+this.value)"></select>
+    <button class="btn" onclick="go(-1)">◀ Ant</button>
+    <select id="jt" onchange="jmp(this.value)"></select>
+    <button class="btn" onclick="go(1)">Prox ▶</button>
   </div>
 </div>
 
-<div class="stage">
-  <div class="stg-n" id="stgn">1</div>
-  <div>
-    <div class="stg-h" id="stgh">Q1 — Armazenamento e Operações</div>
-    <div class="stg-s" id="stgs"></div>
-  </div>
-</div>
-
-<div class="wrap ani" id="wrap">
+<div class="wrap" id="wrap">
   <div class="lc" id="lc"></div>
-  <div class="cc"><div class="bl-wrap"><div class="bl-t">Backlog — 20 Tarefas</div><div id="blist"></div></div></div>
+  <div class="cc" id="blist"></div>
   <div class="rc" id="rc"></div>
 </div>
 
 <script>
-// Mantido o seu script original funcional
-const C={1:'#185FA5',2:'#2E75B6',3:'#0F6E56',4:'#7030A0',5:'#1D9E75',6:'#3A86C8',7:'#C9511F',8:'#1F4E79',9:'#666660',10:'#3B6D11',11:'#854F0B',12:'#A32D2D'};
-const DIM_MAX=5;
-// ... [O restante do seu script original que já estava funcionando continua aqui] ...
-// (Lembre-se de colar a lógica do PYR, D, TAREFAS e as funções que você já tinha no final)
-</script>
-</body>
-</html>
+// (Aguarde o segundo bloco de código abaixo)
