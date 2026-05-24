@@ -194,6 +194,7 @@
     <li><a href="diagnostico.html">Diagnóstico</a></li>
     <li><a href="metodologia.html">Metodologia</a></li>
     <li><a href="implementacao.html">Implementação</a></li>
+    <li><a href="dashboards-evolucao.html">Evolução</a></li>
     <li><a href="indicadores.html">Indicadores</a></li>
     <li><a href="participacao.html">Participação</a></li>
   </ul>
@@ -223,68 +224,133 @@
 <!-- MAIN -->
 <main class="page">
 
-  <!-- SEÇÕES -->
+  <!-- EDITORIAL — substituiu "Navegação por capítulo" -->
   <section style="margin-bottom:56px">
-    <div class="sec-label">Navegação por capítulo</div>
-    <h2 class="sec-title">O que está documentado aqui</h2>
-    <div class="section-cards">
-      <a href="resumo-executivo.html" class="sec-card c-gold">
-        <div class="sec-card-num">Capítulo I</div>
-        <div class="sec-card-icon">🎯</div>
-        <div class="sec-card-title">Resumo Executivo</div>
-        <div class="sec-card-desc">26 proposições acionáveis sobre o URBI.A.: entregas, prazos, riscos mitigados e retorno. Leitura de 5 minutos para a Presidência e Diretorias.</div>
-        <div class="sec-card-cta">Ler resumo</div>
+
+    <!-- DIAGNÓSTICO -->
+    <div class="sec-label">O problema</div>
+    <h2 class="sec-title" style="margin-bottom:16px">O IPPUC possui seis décadas de planejamento urbano.<br>Mas enfrenta um gargalo crítico.</h2>
+    <p style="color:var(--text);font-size:.97rem;line-height:1.75;max-width:780px;margin-bottom:24px">
+      A incapacidade de mobilizar dados com velocidade e integração ameaça a qualidade da revisão do Plano Diretor de 2025. O cenário atual apresenta fragilidades que impactam diretamente a gestão:
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:40px">
+      <div style="background:var(--ink2);border:1px solid var(--line);border-left:3px solid #c05050;border-radius:0 var(--r) var(--r) 0;padding:16px 18px">
+        <div style="font-size:1.6rem;font-weight:800;color:#e87070;font-family:var(--f-display);line-height:1;margin-bottom:6px">14,4%</div>
+        <div style="font-size:.85rem;color:var(--text);line-height:1.5">dos 125 indicadores do PD têm acesso estruturado via API. Os demais 83,2% dependem de webscraping — técnica frágil em que alterações externas interrompem silenciosamente a atualização dos dados.</div>
+      </div>
+      <div style="background:var(--ink2);border:1px solid var(--line);border-left:3px solid #c05050;border-radius:0 var(--r) var(--r) 0;padding:16px 18px">
+        <div style="font-size:1.6rem;font-weight:800;color:#e87070;font-family:var(--f-display);line-height:1;margin-bottom:6px">Passivo LGPD</div>
+        <div style="font-size:.85rem;color:var(--text);line-height:1.5">Dados do CadÚnico e do DATASUS são utilizados sem base legal documentada para todos os fluxos, expondo o Instituto a riscos junto à ANPD.</div>
+      </div>
+      <div style="background:var(--ink2);border:1px solid var(--line);border-left:3px solid #c05050;border-radius:0 var(--r) var(--r) 0;padding:16px 18px">
+        <div style="font-size:1.6rem;font-weight:800;color:#e87070;font-family:var(--f-display);line-height:1;margin-bottom:6px">&lt; 18 meses</div>
+        <div style="font-size:.85rem;color:var(--text);line-height:1.5">O custo acumulado da inação — consolidação manual, relatórios defasados, métricas conflitantes e risco jurídico — supera o investimento na implantação do URBI.A. em menos de dezoito meses.</div>
+      </div>
+    </div>
+
+    <!-- SOLUÇÃO -->
+    <div class="sec-label">A solução</div>
+    <h2 class="sec-title" style="margin-bottom:16px">O URBI.A. como motor de inteligência contínua</h2>
+    <p style="color:var(--text);font-size:.97rem;line-height:1.75;max-width:780px;margin-bottom:28px">
+      O URBI.A. não é um projeto de TI isolado. É uma decisão estratégica sobre como o IPPUC quer se posicionar perante a cidade: não apenas como guardião de planos, mas como motor de inteligência contínua. A plataforma integrará 125 indicadores em sete eixos temáticos, garantindo análises atualizadas e auditáveis para o gestor e para o cidadão.
+    </p>
+
+    <!-- CRONOGRAMA ÁGIL -->
+    <div class="sec-label">Cronograma ágil</div>
+    <h2 class="sec-title" style="margin-bottom:20px">Valor entregue desde a primeira quinzena</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:40px">
+      <div style="background:var(--ink2);border:1px solid var(--line);border-top:2px solid var(--blue-l);border-radius:var(--r);padding:18px">
+        <div style="font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-xl);margin-bottom:8px">Em 15 dias</div>
+        <div style="font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:6px;line-height:1.3">Primeiro dashboard operacional</div>
+        <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Mobilidade com 22 indicadores integrados da URBS, GeoCuritiba e DETRAN — provando o valor do sistema imediatamente.</div>
+        <a href="implementacao.html" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:.75rem;font-weight:600;color:var(--blue-xl);text-decoration:none;text-transform:uppercase;letter-spacing:.04em">Ver implementação →</a>
+      </div>
+      <div style="background:var(--ink2);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:var(--r);padding:18px">
+        <div style="font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-l);margin-bottom:8px">Em 5 meses</div>
+        <div style="font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:6px;line-height:1.3">Visão integrada completa</div>
+        <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Todos os 125 indicadores dos sete eixos do PD cobertos — primeira visão integrada e automatizada da cidade em tempo real.</div>
+        <a href="indicadores.html" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:.75rem;font-weight:600;color:var(--gold-l);text-decoration:none;text-transform:uppercase;letter-spacing:.04em">Ver indicadores →</a>
+      </div>
+      <div style="background:var(--ink2);border:1px solid var(--line);border-top:2px solid var(--green-l);border-radius:var(--r);padding:18px">
+        <div style="font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green-l);margin-bottom:8px">Em 12 meses</div>
+        <div style="font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:6px;line-height:1.3">Maturidade nível 3 em todas as dimensões</div>
+        <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Do nível 1 (informal) ao nível 3 (definido e gerenciado) em todas as 12 dimensões DMBOK — posicionando Curitiba como referência nacional.</div>
+        <a href="diagnostico.html" style="display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:.75rem;font-weight:600;color:var(--green-l);text-decoration:none;text-transform:uppercase;letter-spacing:.04em">Ver diagnóstico →</a>
+      </div>
+    </div>
+
+    <!-- IMPACTOS -->
+    <div class="sec-label">Impactos estratégicos imediatos</div>
+    <h2 class="sec-title" style="margin-bottom:20px">O que muda desde o primeiro ciclo</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:40px">
+      <a href="resumo-executivo.html#b04" style="background:var(--ink2);border:1px solid var(--line);border-radius:var(--r2);padding:20px;text-decoration:none;display:block;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='var(--blue-l)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--line)';this.style.transform='none'">
+        <div style="font-size:1.3rem;margin-bottom:10px">📏</div>
+        <div style="font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:6px">Versão Única da Verdade</div>
+        <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">O Dicionário de Dados oficializa a metodologia de cada cálculo, encerrando as disputas sobre métricas divergentes em reuniões de gestão.</div>
       </a>
-      <a href="contextualizacao.html" class="sec-card c-blue">
-        <div class="sec-card-num">Capítulo II</div>
-        <div class="sec-card-icon">🏛️</div>
-        <div class="sec-card-title">Contextualização Estratégica</div>
-        <div class="sec-card-desc">Missão do IPPUC, cadeia de motivação ArchiMate e como o dado público protege o projeto de trocas de gestão política.</div>
-        <div class="sec-card-cta">Ver contexto</div>
+      <a href="resumo-executivo.html#b06" style="background:var(--ink2);border:1px solid var(--line);border-radius:var(--r2);padding:20px;text-decoration:none;display:block;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='var(--blue-l)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--line)';this.style.transform='none'">
+        <div style="font-size:1.3rem;margin-bottom:10px">⚖️</div>
+        <div style="font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:6px">Conformidade Legal</div>
+        <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">O passivo da LGPD é resolvido por meio de perfis de acesso restrito e anonimização imediata de microdados sensíveis do CadÚnico.</div>
       </a>
-      <a href="diagnostico.html" class="sec-card c-amber">
-        <div class="sec-card-num">Capítulo III</div>
-        <div class="sec-card-icon">🔍</div>
-        <div class="sec-card-title">Diagnóstico de Maturidade</div>
-        <div class="sec-card-desc">Onde o IPPUC está hoje nas 12 dimensões DMBOK e o que isso custa operacionalmente. Radiografia dos 125 indicadores.</div>
-        <div class="sec-card-cta">Ver diagnóstico</div>
+      <a href="participacao.html" style="background:var(--ink2);border:1px solid var(--line);border-radius:var(--r2);padding:20px;text-decoration:none;display:block;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='var(--blue-l)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--line)';this.style.transform='none'">
+        <div style="font-size:1.3rem;margin-bottom:10px">🏙️</div>
+        <div style="font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:6px">Participação Cidadã Gamificada</div>
+        <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Um portal público permite que avaliações de munícipes via Google, Instagram e outros sejam integradas aos indicadores oficiais com consentimento.</div>
       </a>
-      <a href="metodologia.html" class="sec-card c-blue">
-        <div class="sec-card-num">Capítulo IV</div>
-        <div class="sec-card-icon">📐</div>
-        <div class="sec-card-title">Fundamentação Metodológica</div>
-        <div class="sec-card-desc">DAMA-DMBOK, Pirâmide Aiken, Zachman Framework e ArchiMate: por que esses referenciais e como se complementam.</div>
-        <div class="sec-card-cta">Ver metodologia</div>
-      </a>
-      <a href="implementacao.html" class="sec-card c-green">
-        <div class="sec-card-num">Capítulo V</div>
-        <div class="sec-card-icon">⚙️</div>
-        <div class="sec-card-title">Painel de Implementação</div>
-        <div class="sec-card-desc">Cronograma interativo das 20 tarefas quinzenais, pirâmide Aiken animada, radar de maturidade DMBOK e diagramas de contexto.</div>
-        <div class="sec-card-cta">Abrir painel</div>
-      </a>
-      <a href="indicadores.html" class="sec-card c-amber">
-        <div class="sec-card-num">Capítulo VI</div>
-        <div class="sec-card-icon">📊</div>
-        <div class="sec-card-title">Radiografia dos Indicadores</div>
-        <div class="sec-card-desc">API vs webscraping por dashboard. Os 18 indicadores com acesso estável e a estratégia de resiliência para os 104 dependentes de extração automatizada.</div>
-        <div class="sec-card-cta">Ver indicadores</div>
-      </a>
-      <a href="participacao.html" class="sec-card c-green">
-        <div class="sec-card-num">Capítulo VII</div>
-        <div class="sec-card-icon">🏙️</div>
-        <div class="sec-card-title">Participação Cidadã</div>
-        <div class="sec-card-desc">Login com Google e Gov.br, comentários geo-referenciados, integração com Google Maps e redes sociais, gamificação e Modo Escola.</div>
-        <div class="sec-card-cta">Ver participação</div>
-      </a>
-      <a href="downloads.html" class="sec-card c-gold">
-        <div class="sec-card-num">Downloads</div>
-        <div class="sec-card-icon">📁</div>
-        <div class="sec-card-title">Documentos Completos</div>
-        <div class="sec-card-desc">Relatório completo de consultoria, cronograma de implementação e planilha de indicadores mapeados — todos disponíveis para download.</div>
-        <div class="sec-card-cta">Baixar documentos</div>
+      <a href="resumo-executivo.html#b15" style="background:var(--ink2);border:1px solid var(--line);border-radius:var(--r2);padding:20px;text-decoration:none;display:block;transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='var(--blue-l)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--line)';this.style.transform='none'">
+        <div style="font-size:1.3rem;margin-bottom:10px">🤖</div>
+        <div style="font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:6px">Fundação para Inteligência Artificial</div>
+        <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">A documentação rigorosa e o acúmulo de dados históricos criam a base técnica para que IA preditiva suporte as próximas revisões do PD.</div>
       </a>
     </div>
+
+    <!-- RECOMENDAÇÕES -->
+    <div class="sec-label">Ações imediatas para a diretoria</div>
+    <h2 class="sec-title" style="margin-bottom:20px">Três decisões que viabilizam a implantação</h2>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px">
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start;background:var(--ink2);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px">
+        <div style="text-align:center">
+          <div style="font-family:var(--f-display);font-size:1.8rem;color:var(--blue-xl);line-height:1">01</div>
+          <div style="font-family:var(--f-mono);font-size:.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:2px">Até 30 dias</div>
+        </div>
+        <div>
+          <div style="font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:4px">Designar o Comitê de Governança e o CDO</div>
+          <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Formalizar o Chief Data Officer e constituir o Comitê de Governança de Dados para conferir peso institucional à mudança.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start;background:var(--ink2);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px">
+        <div style="text-align:center">
+          <div style="font-family:var(--f-display);font-size:1.8rem;color:var(--blue-xl);line-height:1">02</div>
+          <div style="font-family:var(--f-mono);font-size:.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:2px">Até 30 dias</div>
+        </div>
+        <div>
+          <div style="font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:4px">Autorizar o pipeline do eixo de Mobilidade</div>
+          <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Garantir o primeiro dashboard executivo e validar a iniciativa internamente com resultado concreto em 15 dias.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start;background:var(--ink2);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px">
+        <div style="text-align:center">
+          <div style="font-family:var(--f-display);font-size:1.8rem;color:var(--blue-xl);line-height:1">03</div>
+          <div style="font-family:var(--f-mono);font-size:.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:2px">Até 60 dias</div>
+        </div>
+        <div>
+          <div style="font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:4px">Aprovar a Política de Segurança de Dados</div>
+          <div style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Mitigar imediatamente o risco jurídico frente à LGPD com política aprovada, RBAC configurado e anonimização do CadÚnico.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LINK PARA APROFUNDAR -->
+    <div style="margin-top:28px;padding:20px 24px;background:rgba(30,90,158,.1);border:1px solid rgba(46,117,182,.3);border-radius:var(--r2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div>
+        <div style="font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:4px">Leitura completa das 26 proposições executivas</div>
+        <div style="font-size:.82rem;color:var(--text-muted)">Cada bullet detalha o entregável, o prazo e a justificativa metodológica correspondente.</div>
+      </div>
+      <a href="resumo-executivo.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--blue);color:#fff;border-radius:var(--r);font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--blue-l)'" onmouseout="this.style.background='var(--blue)'">Ler Resumo Executivo →</a>
+    </div>
+
   </section>
 
   <div class="div reveal"></div>
