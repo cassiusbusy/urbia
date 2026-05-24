@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>URBI.A. — Pirâmide Aiken Adaptada · IPPUC</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -42,17 +43,34 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ═══ HEADER ═══ */
-    .hdr {
+    /* ═══ NAVIGATION BAR ═══ */
+    .nav {
       background: var(--ink2);
       border-bottom: 1px solid var(--line);
       padding: 12px 24px;
       display: flex; align-items: center; justify-content: space-between; gap: 16px;
       flex-wrap: wrap;
     }
-    .hdr-t { font-size: 16px; font-weight: 600; color: var(--white); line-height: 1.2; letter-spacing: -0.01em; }
-    .hdr-s { font-size: 11px; font-family: var(--f-mono); color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .nav { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .nav-logo {
+      font-size: 1.2rem; font-weight: 700; color: var(--white); text-decoration: none;
+      font-family: var(--f-body); letter-spacing: -0.02em; display: flex; flex-direction: column; line-height: 1;
+    }
+    .nav-logo span { color: var(--blue-xl); }
+    .nav-logo small { font-size: 10px; font-weight: 500; font-family: var(--f-mono); color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
+    
+    .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-dl { color: var(--gold-l); text-decoration: none; font-size: 0.85rem; font-family: var(--f-mono); font-weight: 500; }
+
+    /* ═══ CONTROLS & SUB-HEADER ═══ */
+    .ctrl-bar {
+      background: rgba(17, 28, 39, 0.5);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .ctrl-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
     
     .btn {
       background: rgba(30,90,158,.2); color: var(--blue-xl);
@@ -198,19 +216,39 @@
     .xc li { font-size: 11px; color: var(--text-muted); line-height: 1.4; margin-left: 12px; margin-bottom: 4px; }
     .xf { padding: 8px 16px; font-size: 10px; font-family: var(--f-mono); color: var(--text-dim); text-align: right; }
 
+    /* ═══ FOOTER ═══ */
+    .footer {
+      background: var(--ink2); border-top: 1px solid var(--line);
+      padding: 20px 24px; display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.85rem; color: var(--text-dim); margin-top: 40px;
+    }
+    .footer a { color: var(--blue-xl); text-decoration: none; }
+
     @keyframes fi { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
     .ani { animation: fi .3s cubic-bezier(0.4, 0, 0.2, 1) both; }
   </style>
 </head>
 <body>
-<div class="hdr">
-  <div>
-    <div class="hdr-t">URBI.A. — Implementação DMBOK / Pirâmide Aiken Adaptada</div>
-    <div class="hdr-s">IPPUC · Plano Diretor de Curitiba · 12 Dimensões DMBOK · 4 Fases Aiken · 2025–2027</div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">URBI<span>.A.</span><small>IPPUC · Curitiba</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="resumo-executivo.html">Resumo</a></li>
+    <li><a href="metodologia.html">Metodologia</a></li>
+    <li><a href="implementacao.html" class="active">Implementação</a></li>
+    <li><a href="indicadores.html">Indicadores</a></li>
+    <li><a href="participacao.html">Participação</a></li>
+  </ul>
+  <a href="downloads.html" class="nav-dl">↓ Downloads</a>
+</nav>
+
+<div class="ctrl-bar">
+  <div class="pgw">
+    <span id="plbl">Dimensão 1/12</span>
+    <div class="pgb"><div class="pgf" id="pgf"></div></div>
   </div>
-  <div class="nav">
-    <div class="pgw"><span id="plbl">Dimensão 1/12</span><div class="pgb"><div class="pgf" id="pgf"></div></div></div>
-    <div class="vsep"></div>
+  <div class="ctrl-actions">
     <button class="btn" id="bprev" onclick="go(-1)">◀ Ant.</button>
     <select class="sel" id="jt" onchange="jmp(+this.value)"></select>
     <button class="btn btn-p" id="bnext" onclick="go(1)">Próx. ▶</button>
@@ -229,9 +267,19 @@
 
 <div class="wrap ani" id="wrap">
   <div class="lc" id="lc"></div>
-  <div class="cc"><div class="bl-wrap"><div class="bl-t">Backlog — 12 Dimensões DMBOK</div><div id="blist"></div></div></div>
+  <div class="cc">
+    <div class="bl-wrap">
+      <div class="bl-t">Backlog — 12 Dimensões DMBOK</div>
+      <div id="blist"></div>
+    </div>
+  </div>
   <div class="rc" id="rc"></div>
 </div>
+
+<footer class="footer">
+  <span>URBI.A. · IPPUC · Curitiba · 2025</span>
+  <a href="downloads.html">↓ Baixar documentos completos</a>
+</footer>
 
 <script>
 // ═══════════════════════════════════════════════════════════════════════
@@ -375,13 +423,13 @@ function deltaHTML(b, a, nm, col){
   return `<div class="dt-name" style="color:${col}">${nm}</div><div class="dt-row"><div class="dt-lbl">Antes</div><div class="dt-bw"><div class="dt-bi" style="width:${(b/DIM_MAX*100).toFixed(0)}%;background:${col}44"></div></div><div class="dt-val" style="color:${col}99">${b.toFixed(1)}</div></div><div class="dt-row"><div class="dt-lbl">Depois</div><div class="dt-bw"><div class="dt-bi" style="width:${(a/DIM_MAX*100).toFixed(0)}%;background:${col}"></div></div><div class="dt-val" style="color:${col}">${a.toFixed(1)}</div></div><div class="dt-gain" style="color:${+g>0?'#3db876':'var(--text-muted)'}">+${g} pts &nbsp;·&nbsp; máx ${DIM_MAX}.0</div>`;
 }
 
-// RESTANTE DOS DADOS: MANTIDO INTACTO
+// ARRAYS DE CONFIGURAÇÃO DE DADOS MANTIDOS
 const D={
   1:{nm:'Armazenamento e Operações',def:'Design, implementação e suporte de dados armazenados — fundação técnica do URBI.A..',goals:['Gerenciar disponibilidade dos dados ao longo do ciclo de vida.','Garantir integridade dos ativos de dados.','Gerenciar desempenho das transações (SLA).'],inp:['Arquitetura de Dados inicial (IPPUC)','Requisitos URBS, GeoCuritiba, DETRAN','Modelos de dados iniciais','SLAs acordados'],act:['1. Gerenciar Tecnologia de BD (P): Selecionar PostgreSQL/PostGIS; monitorar BD','2. Gerenciar Operações de BD (D,O): Continuidade; instâncias Dev/Prod; migração dados Mobilidade'],del:['BD PostgreSQL/PostGIS configurados','Dados Mobilidade ingeridos','Planos de continuidade','OLA de performance','5 pipelines ELT de Mobilidade'],sup:['Arquiteto de Dados (IPPUC)','Modelador de Dados','Desenvolvedor de Software'],par:['DBA — Administrador de BD','Arquiteto de Dados (IPPUC)'],con:['Modelador de Dados','Desenvolvedor de Software','Operações TI (PMC)'],tec:['Padrões de Nomenclatura Física','Gestão do Ciclo de Vida dos Dados','Scripts versionados'],too:['PostgreSQL/pgAdmin','Ferramentas de Backup cloud-native','Monitoramento de BD'],met:['Disponibilidade BD (meta 99,5%)','Performance de queries','Taxa de sucesso ELT','Storage por eixo']},
   2:{nm:'Modelagem e Desenho',def:'Representar requisitos de dados em modelos precisos — conceitual, lógico e físico.',goals:['Documentar requisitos de Habitação e Estruturação Urbana.','Criar modelos alinhados com o Plano Diretor.','Estabelecer fundação para MDM e governança.'],inp:['Modelos existentes (base Q1)','Padrões IPPUC','Datasets Habitação (COHAB-CT, FJP, CadÚnico)','Taxonomia empresarial do PD'],act:['1. Planejar Modelagem (P): Escopo — Habitação e Estruturação Urbana','2. Construir Modelos (D): Conceitual → Lógico → Físico (PostGIS)','3. Revisar e Gerenciar (C,O): Validação IPPUC e COHAB-CT'],del:['Modelo Conceitual (7 eixos do PD)','Modelo Lógico (indicadores × dimensões)','Modelo Físico PostGIS — Habitação','Dicionário de Dados v1.0'],sup:['Profissionais de Negócio (IPPUC, COHAB-CT)','Arquitetos de Dados','Especialistas FJP, CadÚnico'],par:['Analistas de Negócio (IPPUC)','Modeladores de Dados'],con:['Analistas de Negócio','DBAs e Desenvolvedores','Gestores de Dados'],tec:['Convenções de nomenclatura IPPUC','Design BD espacial (PostGIS)',"Notação IE/Crow's Foot"],too:['Ferramentas ERD (DBDiagram)','Repositório de metadados','Modelos de referência FJP'],met:['MER aprovado por IPPUC e COHAB-CT','Cobertura do dicionário','Inconsistências detectadas']},
   3:{nm:'Integração e Interoperabilidade',def:'Substituir troca manual por pipelines ELT automatizados, auditáveis e com data lineage completo.',goals:['Prover dados com conformidade regulatória no prazo.','Reduzir custo e complexidade por interfaces compartilhadas.','Apoiar BI, Analytics e eficiência operacional.'],inp:['Metas e Estratégias de Negócio (IPPUC)','Arquiteturas de Dados e Processo','Dados: IBGE, RAIS, DATASUS, INEP','Dados: SANEPAR, SMMA, SESP, SME'],act:['1. Planejar e Analisar (P): Requisitos; data lineage; perfilagem','2. Projetar Soluções DII (P): Fontes→Destinos; Airflow','3. Desenvolver Soluções DII (D): APIs, FTP, scraping; 12 conectores','4. Implementar e Monitorar (O)'],del:['Arquitetura DII — 12 conectores ativos','Especificações de Troca de Dados','Acordos de Acesso (secretarias)','Data lineage completo — 118 indicadores','Alertas de falha; validação RAIS'],sup:['Produtores de Dados (IBGE, RAIS, DATASUS, SANEPAR)','Comitê TI (PMC)'],par:['Arquitetos de Dados','Data Stewards','Desenvolvedores ELT / API'],con:['Knowledge Workers (secretarias)','Gestores (Prefeitura)'],tec:['ELT — Extract Load Transform','Service Oriented Architecture','Web Scraping estruturado'],too:['Apache Airflow — orquestração ELT','Python (Pandas, SQLAlchemy)','Enterprise Service Bus'],met:['Volume integrado por fonte','Taxa de falha por conector (meta <0,5%)','Latência de atualização','Conformidade SLA']},
   4:{nm:'Segurança de Dados',def:'Políticas de segurança — autenticação, autorização, acesso e auditoria com conformidade LGPD.',goals:['Permitir acesso apropriado e prevenir acesso impróprio.','Cumprir regulamentos LGPD e municipais.','Garantir privacidade e confidencialidade auditadas.'],inp:['Estratégia de negócios (IPPUC)','Requisitos regulatórios (LGPD, ANPD)','Modelo de Dados Empresarial (Q2)','Dados sensíveis: SMMA, SISDC, CadÚnico'],act:['1. Identificar Requisitos (P): Mapear dados sensíveis; classificar','2. Definir Política de Segurança (C): Política RBAC','3. Definir Padrões (D): AES-256/TLS 1.3; k-anonymity','4. Implementar Controles (O): 3 perfis RBAC; log de auditoria'],del:['Política de Segurança v1.0 — LGPD','Matriz de acesso com 3 perfis','Criptografia em repouso','Auditoria de acessos ativa','Anonimização CadÚnico; perfil restrito Defesa Civil'],sup:['Comitê TI (PMC)','Arquitetos Empresariais','Órgãos Regulatórios (ANPD)'],par:['Data Stewards','Equipe de Segurança (TI/PMC)','Auditores Internos'],con:['Usuários de Negócio (secretarias)','DPO — Encarregado de Dados','Auditores (ANPD)'],tec:['Matriz CRUDE para mapeamento de acessos','Atributos de Segurança nos Metadados','Anonimização por k-anonymity'],too:['PostgreSQL RBAC','HashiCorp Vault','Sistema de mascaramento de dados'],met:['% dados classificados','Incidentes de segurança','Conformidade RBAC','Tempo de resposta (meta <72h)']},
-  5:{nm:'Metadados',def:'Acesso a metadados integrados e de alta qualidade — definições, linhagem e informações críticas dos 118 indicadores.',goals:['Fornecer compreensão dos termos e uso dos indicadores.','Integrar metadados de IBGE, URBS, SANEPAR, SESP.','Prover acesso padronizado aos 118 indicadores.','Garantir qualidade e conformidade LGPD.'],inp:['118 indicadores do PD','Problemas de Metadados identificados (Q1–Q6)','Metadados de negócio, técnicos e operacionais','Dados Segurança Pública (SESP, FBSP, SMDT)'],act:['1. Definir Estratégia de Metadados (P)','2. Compreender Requisitos (P): negócio e técnico','3. Definir Arquitetura de Metadados (P): MetaModel; padrões','4. Criar e Manter Metadados (O): Integrar; distribuir via Portal','5. Consultar, Relatar e Analisar (O)'],del:['Catálogo de metadados v1.0 — 118 indicadores','Portal de metadados publicado','Glossário IPPUC integrado','Linhagem de dados completa','Metadados revisados com Data Owners'],sup:['Gestores de Dados de Negócio (secretarias)','Gerentes de Dados (IPPUC)','Órgãos de Governança'],par:['Data Stewards','Arquitetos de Dados','Analistas de Negócio'],con:['Desenvolvedores de Aplicação','Analistas de Dados','Knowledge Workers'],tec:['Linhagem de Dados e Análise de Impacto','Metadados para Big Data'],too:['Repositório de Metadados (Apache Atlas)','Portal de Metadados — interface web'],met:['Cobertura do Catálogo (meta 118/118)','Completude por indicador','Scorecard do Repositório (mensal)']},
+  5:{nm:'Metadados',def:'Acesso a metadados integrados e de alta qualidade — definições, linhagem e informações críticas dos 118 indicadores.',goals:['Fornecer compreensão dos termos e uso dos indicadores.','Integrar metadados de IBGE, URBS, SANEPAR, SESP.','Prover acesso padronizado aos 118 indicadores.','Garantir qualidade e conformidade LGPD.'],inp:['118 indicadores do PD','Problemas de Metadados identificados (Q1–Q6)','Metadados de negócio, técnicos e operacionais','Dados Segurança Pública (SESP, FBSP, SMDT)'],act:['1. Definir Estratégia de Metadados (P)','2. Compreender Requisitos (P): negócio e técnico','3. Definir Arquitetura de Metadados (P): MetaModel; padrões','4. Criar e Manter Metadados (O): Integrar; distribuir via Portal','5. Consultar, Relatar e Analisar (O)'],del:['Catálogo de metadados v1.0 — 118 indicadores','Portal de metadados publicado','Glossário IPPUC integrated','Linhagem de dados completa','Metadados revisados com Data Owners'],sup:['Gestores de Dados de Negócio (secretarias)','Gerentes de Dados (IPPUC)','Órgãos de Governança'],par:['Data Stewards','Arquitetos de Dados','Analistas de Negócio'],con:['Desenvolvedores de Aplicação','Analistas de Dados','Knowledge Workers'],tec:['Linhagem de Dados e Análise de Impacto','Metadados para Big Data'],too:['Repositório de Metadados (Apache Atlas)','Portal de Metadados — interface web'],met:['Cobertura do Catálogo (meta 118/118)','Completude por indicador','Scorecard do Repositório (mensal)']},
   6:{nm:'Arquitetura de Dados',def:'Blueprints mestre de dados — guiando integração, controlando ativos e alinhando investimentos com a estratégia.',goals:['Identificar requisitos de armazenamento e processamento.','Projetar estruturas para requisitos atuais e de longo prazo.','Preparar o IPPUC para evoluir rapidamente seus dados.'],inp:['Arquitetura Empresarial (PMC)','Padrões e Metas de TI','Estratégias de Dados (Q1–Q8)','Avaliação de performance Q1–Q8'],act:['1. Estabelecer Arquitetura Empresarial (P): Avaliar specs; Roadmap','2. Integrar com Arquitetura Empresarial (O): Blueprint (Raw Lake→Staging→DW→BI)','3. Apresentar na 1ª Reunião Trimestral (C): Radar Maturidade T+3m'],del:['Diagrama de arquitetura aprovado','Plano de evolução para DW','EDM consolidado','Roadmap DW e Analytics','Radar de Maturidade T+3 meses'],sup:['Arquitetos Empresariais (PMC)','Data Stewards','Especialistas em Matéria'],par:['Arquitetos de Dados Empresariais (IPPUC)','Modeladores de Dados','Comitê de Governança'],con:['Administradores de BD','Desenvolvedores de Software','Gerentes de Projeto (TI/PMC)'],tec:['Revisões de Ciclo de Vida Q1–Q8','Clareza de Diagramação — blueprint técnico'],too:['Lucidchart, ArchiMate','Software de gestão de ativos de TI'],met:['Conformidade com padrões de arquitetura','Performance dos dashboards (SLA OK)','Métricas de valor de negócio']},
   7:{nm:'Qualidade de Dados',def:'Técnicas de gestão de qualidade — garantindo que dados sejam adequados ao consumo pelos usuários do URBI.A..',goals:['Desenvolver abordagem governada para qualidade.','Definir padrões para controles dos 118 indicadores.','Implementar processos de medição, monitoramento e relato.','Eliminar causas raiz de problemas de dados.'],inp:['Políticas e Padrões de Dados','Regras de Negócio por indicador','Metadados de Negócio e Técnicos','Fontes de Dados e Linhagem (Q1–Q8)'],act:['1. Definir Dados de Alta Qualidade (P): Identificar dados críticos','2. Definir Estratégia de QD (P)','3. Avaliar Qualidade Inicial (P): priorizar; causa raiz','4. Desenvolver Operações QD (D): 118 regras; QA Report; score por eixo'],del:['Estratégia e Framework de QD','118 regras de qualidade ativas','QA Report v1.0 mensal','Score de qualidade por eixo','SLAs de Qualidade'],sup:['Gestão de Negócios (IPPUC, secretarias)','Arquitetos e Modeladores','Data Stewards'],par:['CDO / Diretor IPPUC','Analistas de QD','Data Owners por eixo'],con:['Consumidores de Dados (secretarias)','Gestores de Dados','Profissionais IPPUC'],tec:['Perfilagem de dados por indicador','Dimensões QD: completude, precisão, consistência, atualidade','Regras de negócio (Great Expectations)'],too:['Great Expectations / Soda','Dashboard de Monitoramento de Qualidade'],met:['Score QD por eixo e fonte','Completude 118 indicadores (meta 98%)','Tempo médio de resolução','% atualizados no prazo']},
   8:{nm:'Governança de Dados',def:'Autoridade, controle e tomada de decisão compartilhada sobre os ativos de dados do URBI.A..',goals:['Gerenciar dados do PD como ativo estratégico.','Definir, aprovar e implementar princípios, políticas e métricas.','Monitorar conformidade de políticas e uso de dados.'],inp:['Estratégias e Metas de Negócio (IPPUC)','Estratégias de Gestão de Dados (Q1–Q11)','Políticas e Padrões Organizacionais','Radar de Maturidade','Requisitos LGPD'],act:['1. Definir Governança de Dados (P): Estratégia GD; Avaliação de Prontidão','2. Definir Estratégia de Governança (P): Framework CGD; Políticas; Gestão de Mudanças','3. Implementar Governança (O): Patrocinar Padrões; Glossário; 2ª Reunião Trimestral','4. Incorporar Governança de Dados (C,O)'],del:['Política de Dados assinada pela Direção','CGD constituído formalmente','Data Owners designados por eixo (7)','Calendário de Governança 2025–2027','Glossário de Negócios — indicadores PD'],sup:['Executivos de Negócios (Secretários)','Data Stewards','Reguladores (ANPD)','Arquitetos Empresariais (PMC)'],par:['Comitê de Governança URBI.A. (CGD)','CIO (PMC) / CDO / Diretor IPPUC','Data Stewards por eixo (7)','Compliance Team / Change Managers'],con:['Profissionais de Dados (todas as secretarias)','Órgãos de Governança','Equipe de Auditoria'],tec:['Communication Plan Checklists','Afirmações Anuais de Política','Gestão de mudanças — ADKAR'],too:['Portal de Governança URBI.A. (SharePoint)','Wikis, Intranet IPPUC'],met:['Conformidade com políticas (%)','Data Owners formalizados (meta 7)','Reuniões governança/mês (meta 2)','Taxa de resolução no prazo']},
@@ -492,7 +540,7 @@ let cur=0;
 document.querySelectorAll('#jt option').forEach(o=>o.remove());
 TAREFAS.forEach((t,i)=>{
   const o=document.createElement('option');
-  o.value=i; o.textContent=`${t.q} — ${t.funcao}`;
+  o.value=i; o.textContent=`${t.q} — ${t.fase}`;
   document.getElementById('jt').appendChild(o);
 });
 [['Fase 1 — Base Operacional (D1–D4)',0], ['Fase 2 — Controle e Rastreabilidade (D5–D6)',4], ['Fase 3 — Governança Estruturada (D7–D10)',6], ['Fase 4 — Valor Analítico (D11–D12)',10]].forEach(([lbl,st])=>{
